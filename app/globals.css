@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand: 109 40 217;
+    --brand-accent: 124 58 237;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-brand-ink antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-white rounded-sm;
+  }
+}
+
+@layer utilities {
+  .gradient-soft {
+    background: radial-gradient(ellipse at top, #F5F3FF 0%, #FFFFFF 60%);
+  }
+  .gradient-violet {
+    background: linear-gradient(135deg, #6D28D9 0%, #7C3AED 100%);
+  }
+  .mask-radial {
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+  }
+}
