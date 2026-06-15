@@ -35,8 +35,8 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-brand-line shadow-sm"
-          : "bg-white/70 backdrop-blur-sm"
+          ? "bg-ivory/85 backdrop-blur-xl border-b border-line shadow-[0_1px_0_0_rgba(228,225,218,0.6)]"
+          : "bg-transparent"
       )}
     >
       <div className="container flex h-16 lg:h-20 items-center justify-between">
@@ -54,8 +54,8 @@ export function Navbar() {
             priority
           />
           <span className="hidden sm:flex flex-col leading-tight">
-            <span className="font-semibold text-sm text-brand-ink">IVTSF</span>
-            <span className="text-[10px] text-brand-muted uppercase tracking-wider">
+            <span className="font-semibold text-sm text-ink">IVTSF</span>
+            <span className="text-[10px] text-muted uppercase tracking-wider">
               Vanishing Twin Syndrome Foundation
             </span>
           </span>
@@ -75,7 +75,7 @@ export function Navbar() {
                   "px-3 py-2 text-sm font-medium rounded-full transition-colors",
                   active
                     ? "text-brand-deep bg-brand-soft"
-                    : "text-brand-ink hover:text-brand hover:bg-brand-soft/60"
+                    : "text-ink hover:text-brand hover:bg-brand-soft/60"
                 )}
               >
                 {link.label}
@@ -92,7 +92,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="lg:hidden p-2 -mr-2 text-brand-ink"
+          className="lg:hidden p-2 -mr-2 text-ink"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -118,7 +118,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
-              className="lg:hidden fixed top-16 right-0 bottom-0 w-[82%] max-w-sm bg-white border-l border-brand-line shadow-soft overflow-y-auto"
+              className="lg:hidden fixed top-16 right-0 bottom-0 w-[82%] max-w-sm bg-white border-l border-line shadow-soft overflow-y-auto"
             >
               <nav
                 className="flex flex-col p-6 gap-1"
@@ -133,7 +133,7 @@ export function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="block px-4 py-3 text-base font-medium text-brand-ink rounded-xl hover:bg-brand-soft hover:text-brand-deep transition-colors"
+                      className="block px-4 py-3 text-base font-medium text-ink rounded-xl hover:bg-brand-soft hover:text-brand-deep transition-colors"
                     >
                       {link.label}
                     </Link>

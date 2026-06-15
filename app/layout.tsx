@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -10,18 +10,26 @@ const inter = Inter({
   display: "swap",
 });
 
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   title: {
     default: "International Vanishing Twin Syndrome Foundation",
     template: "%s | IVTSF",
   },
   description:
-    "Supporting families and advancing research for Vanishing Twin Syndrome. A 501(c)(3) nonprofit dedicated to awareness, education, and family support.",
+    "Compassionate research, education, and support for families affected by vanishing twin syndrome and multifetal loss. A 501(c)(3) nonprofit.",
   metadataBase: new URL("https://vanishingtwinsyndrome.org"),
   openGraph: {
     title: "International Vanishing Twin Syndrome Foundation",
     description:
-      "You are not alone. Supporting families and advancing research for Vanishing Twin Syndrome.",
+      "You are not alone. Research, education, and support for families affected by vanishing twin syndrome.",
     type: "website",
   },
 };
@@ -32,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${lora.variable}`}>
       <body className="font-sans min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
