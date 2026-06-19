@@ -19,6 +19,7 @@ import { Badge } from "@/components/ui/badge";
 import { DisplayCards } from "@/components/display-cards";
 import { CountUp } from "@/components/count-up";
 import { SectionReveal } from "@/components/section-reveal";
+import { withBasePath } from "@/lib/basePath";
 
 const PILLARS = [
   {
@@ -71,12 +72,32 @@ export default function HomePage() {
     <>
       {/* ── Hero ─────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Fallback gradient — visible while video loads or on reduced-motion */}
         <div className="absolute inset-0 aurora-bg" aria-hidden />
+
+        {/* Background video — faded back so text stays readable */}
+        <video
+          data-hero
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.45, mixBlendMode: "luminosity" }}
+        >
+          <source
+            src={withBasePath("/7570625-uhd_3840_2160_25fps.mp4")}
+            type="video/mp4"
+          />
+        </video>
+
+        {/* Dark overlay — tones the video down and ensures contrast */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 40%, rgba(45,16,96,0.5) 0%, rgba(13,5,32,0.88) 100%)",
+              "radial-gradient(ellipse at 50% 40%, rgba(30,10,80,0.72) 0%, rgba(13,5,32,0.92) 100%)",
           }}
           aria-hidden
         />
