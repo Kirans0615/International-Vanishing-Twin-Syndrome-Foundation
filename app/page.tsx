@@ -11,11 +11,11 @@ import {
   MessageSquare,
   Lightbulb,
   Mail,
+  Heart,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { ButterflyHero } from "@/components/ui/butterfly-hero";
 import { DisplayCards } from "@/components/display-cards";
 import { CountUp } from "@/components/count-up";
 import { SectionReveal } from "@/components/section-reveal";
@@ -69,8 +69,113 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ── Butterfly Hero ────────────────────────────── */}
-      <ButterflyHero />
+      {/* ── Hero ─────────────────────────────────────── */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 aurora-bg" aria-hidden />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 40%, rgba(45,16,96,0.5) 0%, rgba(13,5,32,0.88) 100%)",
+          }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 grain-overlay pointer-events-none" aria-hidden />
+
+        <div className="container relative z-10 py-32 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <span
+              className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8"
+              style={{
+                background: "rgba(107,45,181,0.2)",
+                color: "rgba(196,181,253,0.9)",
+                border: "1px solid rgba(139,92,246,0.3)",
+              }}
+            >
+              501(c)(3) Nonprofit Organization
+            </span>
+          </motion.div>
+
+          <motion.h1
+            className="font-serif font-medium text-white balance max-w-4xl mx-auto mb-6"
+            style={{
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
+              lineHeight: 1.04,
+              letterSpacing: "-0.02em",
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1 }}
+          >
+            Understanding.{" "}
+            <span style={{ color: "#C4B5FD" }}>Research.</span>{" "}
+            Support.
+          </motion.h1>
+
+          <motion.p
+            className="text-white/65 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed pretty"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.22 }}
+          >
+            The International Vanishing Twin Syndrome Foundation is the leading
+            global nonprofit improving how VTS is recognized, communicated, and
+            supported across all gestational ages and life stages.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+          >
+            <Button
+              asChild
+              size="lg"
+              className="text-white border-0 font-semibold text-base px-8"
+              style={{
+                background: "linear-gradient(135deg, #6B2DB5 0%, #C2408C 100%)",
+              }}
+            >
+              <Link href="/what-is-vts">Learn About VTS</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-white/25 text-white hover:bg-white/10 text-base px-8"
+              style={{ background: "rgba(255,255,255,0.05)" }}
+            >
+              <Link href="/donate">
+                <Heart className="h-4 w-4" aria-hidden />
+                Donate Now
+              </Link>
+            </Button>
+          </motion.div>
+
+          {/* Scroll cue */}
+          <motion.div
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.4, duration: 0.8 }}
+            aria-hidden
+          >
+            <span className="text-white/30 text-xs uppercase tracking-widest">
+              Scroll
+            </span>
+            <motion.div
+              className="w-px h-10 bg-gradient-to-b from-white/30 to-transparent"
+              animate={{ scaleY: [1, 0.4, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.div>
+        </div>
+      </section>
 
       {/* ── Vision bar ───────────────────────────────── */}
       <SectionReveal>

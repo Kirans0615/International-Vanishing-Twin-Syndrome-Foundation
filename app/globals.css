@@ -85,6 +85,47 @@
   .pretty {
     text-wrap: pretty;
   }
+  .aurora-bg {
+    background: linear-gradient(
+      135deg,
+      #4c1d95 0%,
+      #1e1b4b 20%,
+      #312e81 40%,
+      #7c3aed 60%,
+      #1e1b4b 80%,
+      #4c1d95 100%
+    );
+    background-size: 400% 400%;
+    animation: aurora 12s ease infinite;
+  }
+  @keyframes aurora {
+    0%, 100% { background-position: 0% 50%; }
+    50%       { background-position: 100% 50%; }
+  }
+  .grain-overlay {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 1px,
+        rgba(255, 255, 255, 0.018) 1px,
+        rgba(255, 255, 255, 0.018) 2px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 1px,
+        rgba(255, 255, 255, 0.018) 1px,
+        rgba(255, 255, 255, 0.018) 2px
+      );
+    background-size: 2px 2px;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(196, 181, 253, 0.3);
+  }
 }
 
 @media (pointer: fine) {

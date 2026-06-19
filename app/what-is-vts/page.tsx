@@ -12,6 +12,40 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionReveal } from "@/components/section-reveal";
 import { CountUp } from "@/components/count-up";
+import { FAQAccordion, type FAQItem } from "@/components/ui/faq-accordion";
+
+const FAQ_ITEMS: FAQItem[] = [
+  {
+    question: "Is VTS the same as a miscarriage?",
+    answer:
+      "VTS involves the loss of one baby in a multiple pregnancy. While it shares some features with a miscarriage, it occurs in a distinct context — a pregnancy that continues with another baby. Some families find the term 'miscarriage' does not fully reflect their experience, particularly when one baby went on to be born. Language should follow the family's lead.",
+  },
+  {
+    question: "Can VTS happen without an early ultrasound?",
+    answer:
+      "Yes. Many cases of VTS are never detected because they occur before a first ultrasound, or because not all scans are performed in the early first trimester when a twin pregnancy can be confirmed. It is estimated that the majority of VTS cases go undiagnosed — sometimes families only learn about it later, through subsequent scans or at delivery.",
+  },
+  {
+    question: "What causes VTS?",
+    answer:
+      "The primary suspected cause is a chromosomal or genetic abnormality in the baby who did not continue to develop. However, the research on contributing factors is not yet complete. IVTSF supports expanded investigation into the full range of causes and risk factors, including maternal, placental, and environmental influences.",
+  },
+  {
+    question: "Does VTS affect the baby who continues to develop?",
+    answer:
+      "In most cases, the living child is not physically affected. However, there is emerging research into psychological and identity-related considerations for children who begin as twins. In rare cases involving later-trimester losses, physical effects may occur. Genetic chimerism — the carrying of cells from the twin who did not develop — is also an area of ongoing study.",
+  },
+  {
+    question: "What if I only found out about my VTS years later?",
+    answer:
+      "This is more common than many realize. Some families learn about a previous VTS through medical records, a new provider's review of earlier scans, or a child asking questions about their twin. The loss does not become less real because of when it was communicated. Grief and questions that arise later are entirely valid.",
+  },
+  {
+    question: "Does IVTSF provide counseling or direct support?",
+    answer:
+      "IVTSF does not provide counseling or operate support groups directly. We offer research-based information and referrals to organizations that provide peer and clinical support. If you are in crisis, please contact a qualified mental health professional or a crisis support service in your region.",
+  },
+];
 
 export const metadata = { title: "What is VTS" };
 
@@ -354,8 +388,25 @@ export default function WhatIsVtsPage() {
         </div>
       </section>
 
-      {/* Sub-page links */}
+      {/* FAQ */}
       <section className="bg-[#FAF8FF]">
+        <div className="container py-20 md:py-28">
+          <SectionReveal className="max-w-xl mb-10">
+            <Badge variant="soft" className="mb-4">
+              Common Questions
+            </Badge>
+            <h2 className="font-serif text-display-3 font-medium text-ink balance">
+              Frequently asked questions.
+            </h2>
+          </SectionReveal>
+          <div className="max-w-3xl">
+            <FAQAccordion items={FAQ_ITEMS} />
+          </div>
+        </div>
+      </section>
+
+      {/* Sub-page links */}
+      <section className="bg-[#F0EBF8]">
         <div className="container py-20 md:py-24">
           <SectionReveal className="max-w-xl mb-10">
             <h2 className="font-serif text-2xl font-medium text-ink">

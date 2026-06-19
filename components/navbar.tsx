@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/components/nav-links";
-import { ButterflySVG } from "@/components/ui/butterfly-svg";
+import { ButterflyIcon } from "@/components/ui/butterfly-icon";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -54,7 +54,7 @@ export function Navbar() {
               whileHover={{ rotate: [0, -8, 8, 0] }}
               transition={{ duration: 0.4 }}
             >
-              <ButterflySVG size={36} animated={false} />
+              <ButterflyIcon size={36} />
             </motion.div>
             <span className="hidden sm:flex flex-col leading-tight">
               <span className="font-semibold text-sm text-white">IVTSF</span>
@@ -136,7 +136,7 @@ export function Navbar() {
             className="fixed inset-0 top-0 z-40 flex flex-col bg-[#1A0A3D] pt-20 px-6 pb-8 overflow-y-auto"
           >
             <div className="flex flex-col items-center mb-10">
-              <ButterflySVG size={80} animated phase="floating" />
+              <ButterflyIcon size={80} />
               <p className="text-white/50 text-xs uppercase tracking-widest mt-3">
                 IVTSF
               </p>

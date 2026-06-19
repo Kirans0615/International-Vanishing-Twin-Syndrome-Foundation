@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Mail, Facebook, Instagram, Linkedin } from "lucide-react";
 import { NAV_LINKS } from "@/components/nav-links";
-import { ButterflySVG } from "@/components/ui/butterfly-svg";
+import { ButterflyIcon } from "@/components/ui/butterfly-icon";
 
 const SOCIAL_LINKS = [
   {
@@ -47,7 +47,7 @@ export function Footer() {
               className="flex items-center gap-3 mb-5"
               aria-label="IVTSF home"
             >
-              <ButterflySVG size={48} animated={false} />
+              <ButterflyIcon size={48} />
               <span className="flex flex-col leading-tight">
                 <span className="font-semibold text-white">IVTSF</span>
                 <span className="text-xs text-white/50 uppercase tracking-wider">

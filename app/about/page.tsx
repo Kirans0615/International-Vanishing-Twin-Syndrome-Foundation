@@ -11,7 +11,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionReveal } from "@/components/section-reveal";
-import { ButterflySVG } from "@/components/ui/butterfly-svg";
+import { ButterflyIcon } from "@/components/ui/butterfly-icon";
 
 export const metadata = { title: "About" };
 
@@ -84,7 +84,7 @@ export default function AboutPage() {
             aria-hidden
             style={{ opacity: 0.05 }}
           >
-            <ButterflySVG size={320} animated={false} />
+            <ButterflyIcon size={320} />
           </div>
 
           <SectionReveal className="max-w-2xl mb-14">

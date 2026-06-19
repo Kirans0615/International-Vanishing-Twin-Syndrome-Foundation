@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { AppProviders } from "@/app/providers";
+import { ButterflyOverlay } from "@/components/ui/butterfly-overlay";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
       <body className="font-sans min-h-screen flex flex-col bg-[#FAF8FF] text-[#1A1020] antialiased">
         <AppProviders>
           <Navbar />
+          <ButterflyOverlay />
           <main className="flex-1">{children}</main>
           <Footer />
         </AppProviders>
