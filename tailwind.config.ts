@@ -10,34 +10,34 @@ const config: Config = {
     },
     extend: {
       colors: {
-        ink: "#1F2A30",
-        muted: "#5E6E76",
-        line: "#E4E1DA",
-        paper: "#FAF7F2",
-        ivory: "#FBFAF6",
-        cloud: "#F2EFE8",
+        ink: "#1A1A1A",
+        muted: "#6B6560",
+        line: "#E8E4DE",
+        paper: "#FAF8F5",
+        ivory: "#FAF8F5",
+        cloud: "#F2EFE9",
 
-        // Primary — calming teal
+        // Primary — deep teal (trust, medical, warm)
         brand: {
-          DEFAULT: "#4F7C82",
-          deep: "#2F5A60",
-          soft: "#E8F0F0",
-          ink: "#1F2A30",
-          muted: "#5E6E76",
-          line: "#E4E1DA",
-          paper: "#FAF7F2",
+          DEFAULT: "#0D7A6E",
+          deep: "#085C52",
+          soft: "#E0F2EF",
+          ink: "#1A1A1A",
+          muted: "#6B6560",
+          line: "#E8E4DE",
+          paper: "#FAF8F5",
         },
-        // Accent — sage
-        sage: {
-          DEFAULT: "#8FA68E",
-          deep: "#5B7459",
-          soft: "#ECEFE8",
+        // Secondary — dusty rose/mauve (grief-sensitive, gentle)
+        rose: {
+          DEFAULT: "#C2848A",
+          deep: "#9E5A62",
+          soft: "#F8EDEE",
         },
-        // Accent — soft lavender (used sparingly)
-        lavender: {
-          DEFAULT: "#B5A9CC",
-          deep: "#7C6E97",
-          soft: "#EFEBF4",
+        // Accent — warm gold (hope, advocacy)
+        gold: {
+          DEFAULT: "#C9973A",
+          deep: "#A67C2A",
+          soft: "#FDF3E0",
         },
       },
       fontFamily: {
@@ -53,21 +53,12 @@ const config: Config = {
         "3xl": "1.5rem",
       },
       boxShadow: {
-        card: "0 4px 24px -8px rgba(31, 42, 48, 0.08), 0 2px 8px -4px rgba(31, 42, 48, 0.04)",
-        soft: "0 14px 44px -12px rgba(79, 124, 130, 0.22)",
-        ring: "0 0 0 1px rgba(228, 225, 218, 0.8), 0 12px 32px -10px rgba(31, 42, 48, 0.1)",
+        card: "0 4px 24px -8px rgba(13, 122, 110, 0.08), 0 2px 8px -4px rgba(26, 26, 26, 0.04)",
+        soft: "0 14px 44px -12px rgba(13, 122, 110, 0.18)",
+        ring: "0 0 0 1px rgba(232, 228, 222, 0.8), 0 12px 32px -10px rgba(26, 26, 26, 0.1)",
       },
       maxWidth: {
         prose: "70ch",
-      },
-      keyframes: {
-        "fade-in-up": {
-          from: { opacity: "0", transform: "translateY(16px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
-        },
-      },
-      animation: {
-        "fade-in-up": "fade-in-up 0.7s cubic-bezier(0.16,1,0.3,1) forwards",
       },
     },
   },

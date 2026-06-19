@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, Globe, Facebook, Instagram, Linkedin, Send, AlertCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { SectionReveal } from "@/components/section-reveal";
 
 const fieldVariants = {
   hidden: { opacity: 0, y: 16 },
@@ -18,44 +19,64 @@ const fieldVariants = {
   }),
 };
 
+const SOCIAL_LINKS = [
+  {
+    href: "https://www.facebook.com/vanishingtwinsyndromefoundation",
+    label: "Facebook",
+    Icon: Facebook,
+  },
+  {
+    href: "https://www.instagram.com/vanishingtwinsyndrome",
+    label: "Instagram",
+    Icon: Instagram,
+  },
+  {
+    href: "https://www.linkedin.com/company/ivtsf",
+    label: "LinkedIn",
+    Icon: Linkedin,
+  },
+];
+
 export default function ContactPage() {
   return (
     <>
       <section className="gradient-soft">
-        <div className="container py-20 md:py-24">
-          <div className="max-w-3xl">
+        <div className="container py-20 md:py-28">
+          <SectionReveal className="max-w-3xl">
             <Badge variant="soft" className="mb-5">
               Contact
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-ink leading-tight mb-5">
-              We would love to hear from you.
+            <h1 className="font-serif text-display-2 font-medium text-ink leading-[1.05] mb-6 balance">
+              Get in Touch
             </h1>
-            <p className="text-lg md:text-xl text-brand-muted leading-relaxed">
+            <p className="text-lg md:text-xl text-muted leading-relaxed pretty">
               Whether you are a family with questions, a clinician seeking
-              resources, or a researcher looking to collaborate — write to us.
+              resources, or a researcher looking to collaborate — we would love
+              to hear from you.
             </p>
-          </div>
+          </SectionReveal>
         </div>
       </section>
 
       <section className="container py-20 md:py-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] max-w-6xl mx-auto">
+          {/* Left — contact info */}
           <div>
-            <h2 className="text-2xl font-semibold text-brand-ink mb-5">
-              Reach out directly
+            <h2 className="font-serif text-2xl font-medium text-ink mb-6">
+              Reach us directly
             </h2>
-            <ul className="space-y-5 mb-10">
+            <ul className="space-y-5 mb-8">
               <li className="flex items-start gap-4">
                 <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-brand-soft text-brand-deep flex-shrink-0">
                   <Mail className="h-5 w-5" aria-hidden />
                 </div>
                 <div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-brand-muted mb-1">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-muted mb-1">
                     Email
                   </div>
                   <a
                     href="mailto:contact@vanishingtwinsyndrome.org"
-                    className="text-brand-ink hover:text-brand transition-colors font-medium"
+                    className="text-ink hover:text-brand transition-colors font-medium"
                   >
                     contact@vanishingtwinsyndrome.org
                   </a>
@@ -63,60 +84,73 @@ export default function ContactPage() {
               </li>
               <li className="flex items-start gap-4">
                 <div className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-brand-soft text-brand-deep flex-shrink-0">
-                  <MapPin className="h-5 w-5" aria-hidden />
+                  <Globe className="h-5 w-5" aria-hidden />
                 </div>
                 <div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-brand-muted mb-1">
-                    Location
+                  <div className="text-xs font-semibold uppercase tracking-wider text-muted mb-1">
+                    Website
                   </div>
-                  <div className="text-brand-ink font-medium">
-                    United States — fully remote
-                  </div>
+                  <a
+                    href="https://www.vanishingtwinsyndrome.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-ink hover:text-brand transition-colors font-medium"
+                  >
+                    www.vanishingtwinsyndrome.org
+                  </a>
                 </div>
               </li>
             </ul>
 
-            <div
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-brand-line bg-gradient-to-br from-brand-soft via-white to-violet-50"
-              aria-hidden
-            >
-              <svg
-                viewBox="0 0 400 300"
-                className="absolute inset-0 w-full h-full"
-                preserveAspectRatio="xMidYMid slice"
-              >
-                <defs>
-                  <radialGradient id="dot" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="rgba(109,40,217,0.5)" />
-                    <stop offset="100%" stopColor="rgba(109,40,217,0)" />
-                  </radialGradient>
-                </defs>
-                <g fill="none" stroke="rgba(109,40,217,0.18)" strokeWidth="1">
-                  <path d="M0,80 Q120,40 200,90 T400,80" />
-                  <path d="M0,140 Q140,110 220,150 T400,140" />
-                  <path d="M0,210 Q120,180 200,220 T400,210" />
-                </g>
-                <circle cx="200" cy="150" r="60" fill="url(#dot)" />
-                <circle cx="200" cy="150" r="8" fill="#6D28D9" />
-              </svg>
-              <div className="absolute bottom-4 left-4 right-4 text-xs text-brand-muted bg-white/80 backdrop-blur-sm rounded-lg px-3 py-2">
-                A growing, US-based community.
+            <div className="mb-8">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted mb-3">
+                Follow us
+              </p>
+              <div className="flex gap-3">
+                {SOCIAL_LINKS.map(({ href, label, Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-white border border-line text-muted hover:text-brand hover:border-brand/30 transition-colors"
+                  >
+                    <Icon className="h-4 w-4" aria-hidden />
+                  </a>
+                ))}
               </div>
+            </div>
+
+            {/* Crisis note */}
+            <div className="rounded-xl border border-line bg-cloud px-5 py-5 flex gap-3">
+              <AlertCircle
+                className="h-5 w-5 text-rose flex-shrink-0 mt-0.5"
+                aria-hidden
+              />
+              <p className="text-sm text-muted leading-relaxed">
+                IVTSF does not provide crisis counseling. If you need immediate
+                support, please contact a licensed mental health professional or
+                crisis line in your region. We are happy to provide relevant
+                referrals upon request.
+              </p>
             </div>
           </div>
 
-          <Card className="p-8 md:p-10">
+          {/* Right — form */}
+          <Card className="p-8 md:p-10 border-line">
             <CardContent className="p-0">
               <form className="space-y-5">
                 {[
-                  { id: "c-name", label: "Name", type: "text", required: true },
+                  { id: "c-name", label: "Name", type: "text", required: true, placeholder: "Your name" },
                   {
                     id: "c-email",
                     label: "Email",
                     type: "email",
                     required: true,
+                    placeholder: "you@email.com",
                   },
-                  { id: "c-subject", label: "Subject", type: "text" },
+                  { id: "c-subject", label: "Subject", type: "text", required: false, placeholder: "What is this about?" },
                 ].map((field, i) => (
                   <motion.div
                     key={field.id}
@@ -126,11 +160,17 @@ export default function ContactPage() {
                     variants={fieldVariants}
                     className="space-y-2"
                   >
-                    <Label htmlFor={field.id}>{field.label}</Label>
+                    <Label htmlFor={field.id}>
+                      {field.label}
+                      {field.required && (
+                        <span className="text-rose ml-1" aria-hidden>*</span>
+                      )}
+                    </Label>
                     <Input
                       id={field.id}
                       type={field.type}
                       required={field.required}
+                      placeholder={field.placeholder}
                     />
                   </motion.div>
                 ))}
@@ -141,8 +181,15 @@ export default function ContactPage() {
                   variants={fieldVariants}
                   className="space-y-2"
                 >
-                  <Label htmlFor="c-msg">Message</Label>
-                  <Textarea id="c-msg" rows={5} required />
+                  <Label htmlFor="c-msg">
+                    Message <span className="text-rose" aria-hidden>*</span>
+                  </Label>
+                  <Textarea
+                    id="c-msg"
+                    rows={5}
+                    required
+                    placeholder="Tell us how we can help, or share what you are looking for."
+                  />
                 </motion.div>
                 <motion.div
                   custom={4}

@@ -11,6 +11,8 @@ const badgeVariants = cva(
         soft: "bg-brand-soft text-brand-deep",
         outline: "border border-brand/30 text-brand",
         muted: "bg-brand-paper text-brand-muted border border-brand-line",
+        gold: "bg-gold-soft text-gold-deep border border-gold/30",
+        rose: "bg-rose-soft text-rose-deep border border-rose/30",
         amber: "bg-amber-50 text-amber-900 border border-amber-200",
       },
     },
