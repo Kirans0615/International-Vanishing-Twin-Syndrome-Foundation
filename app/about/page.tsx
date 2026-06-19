@@ -11,6 +11,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionReveal } from "@/components/section-reveal";
+import { ButterflySVG } from "@/components/ui/butterfly-svg";
 
 export const metadata = { title: "About" };
 
@@ -66,58 +67,70 @@ export default function AboutPage() {
               About the IVTSF
             </h1>
             <p className="text-lg md:text-xl text-muted leading-relaxed pretty">
-              A global nonprofit led by parents and providers — dedicated to
-              improving how vanishing twin syndrome is understood, communicated,
-              and supported worldwide.
+              A global nonprofit led by parents and providers &mdash; dedicated
+              to improving how vanishing twin syndrome is understood,
+              communicated, and supported worldwide.
             </p>
           </SectionReveal>
         </div>
       </section>
 
-      {/* Mission pillars */}
+      {/* Mission pillars — with butterfly watermark */}
       <section className="container py-20 md:py-28">
-        <SectionReveal className="max-w-2xl mb-14">
-          <Badge variant="outline" className="mb-4">
-            Mission Pillars
-          </Badge>
-          <h2 className="font-serif text-display-3 font-medium text-ink mb-4 balance">
-            Five pillars guide our work.
-          </h2>
-          <p className="text-muted text-lg leading-relaxed pretty">
-            Every program and initiative at IVTSF traces back to one of these
-            five commitments.
-          </p>
-        </SectionReveal>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {PILLARS.map((pillar, i) => {
-            const Icon = pillar.icon;
-            return (
-              <SectionReveal key={pillar.title} index={i}>
-                <Card className="h-full border border-l-4 border-l-brand border-line bg-white p-7 shadow-card hover:shadow-soft transition-shadow">
-                  <CardContent className="p-0">
-                    <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-brand-soft text-brand-deep mb-5">
-                      <Icon className="h-6 w-6" aria-hidden />
-                    </div>
-                    <h3 className="font-serif text-xl font-medium text-ink mb-3">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-muted leading-relaxed">{pillar.body}</p>
-                  </CardContent>
-                </Card>
-              </SectionReveal>
-            );
-          })}
+        <div className="relative">
+          {/* Butterfly watermark */}
+          <div
+            className="absolute right-0 top-1/2 -translate-y-1/2 -z-10 pointer-events-none rotate-[15deg]"
+            aria-hidden
+            style={{ opacity: 0.05 }}
+          >
+            <ButterflySVG size={320} animated={false} />
+          </div>
+
+          <SectionReveal className="max-w-2xl mb-14">
+            <Badge variant="outline" className="mb-4">
+              Mission Pillars
+            </Badge>
+            <h2 className="font-serif text-display-3 font-medium text-ink mb-4 balance">
+              Five pillars guide our work.
+            </h2>
+            <p className="text-muted text-lg leading-relaxed pretty">
+              Every program and initiative at IVTSF traces back to one of these
+              five commitments.
+            </p>
+          </SectionReveal>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {PILLARS.map((pillar, i) => {
+              const Icon = pillar.icon;
+              return (
+                <SectionReveal key={pillar.title} index={i}>
+                  <Card className="h-full border border-l-4 border-l-brand border-line bg-white p-7 shadow-card ivtsf-glow-hover">
+                    <CardContent className="p-0">
+                      <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-brand-soft text-brand-deep mb-5">
+                        <Icon className="h-6 w-6" aria-hidden />
+                      </div>
+                      <h3 className="font-serif text-xl font-medium text-ink mb-3">
+                        {pillar.title}
+                      </h3>
+                      <p className="text-muted leading-relaxed">{pillar.body}</p>
+                    </CardContent>
+                  </Card>
+                </SectionReveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* Vision */}
-      <section className="bg-brand py-16 md:py-20">
+      <section className="py-16 md:py-20" style={{ background: "linear-gradient(135deg, #6B2DB5 0%, #4A1A8C 100%)" }}>
         <div className="container">
           <SectionReveal className="text-center max-w-3xl mx-auto">
             <p className="font-serif italic text-white text-xl md:text-2xl leading-relaxed">
-              "A world where VTS is recognized, supported, and accurately communicated."
+              &ldquo;A world where VTS is recognized, supported, and accurately
+              communicated.&rdquo;
             </p>
-            <p className="text-brand-soft text-sm mt-4 uppercase tracking-wider font-medium">
+            <p className="text-white/60 text-sm mt-4 uppercase tracking-wider font-medium">
               IVTSF Vision Statement
             </p>
           </SectionReveal>
@@ -125,7 +138,7 @@ export default function AboutPage() {
       </section>
 
       {/* Who we are + initiatives */}
-      <section className="bg-paper">
+      <section className="bg-[#FAF8FF]">
         <div className="container py-20 md:py-28">
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-20 items-start">
             <SectionReveal>
@@ -143,8 +156,8 @@ export default function AboutPage() {
               </p>
               <p className="text-muted leading-relaxed mb-4 pretty">
                 Our work advances research, clinical communication, terminology
-                clarity, and support — ensuring that families and providers have
-                access to accurate, trauma-informed information.
+                clarity, and support &mdash; ensuring that families and providers
+                have access to accurate, trauma-informed information.
               </p>
               <p className="text-muted leading-relaxed pretty">
                 We operate through partnerships with academic institutions,
@@ -178,18 +191,21 @@ export default function AboutPage() {
       {/* Media contact */}
       <section className="container py-12 pb-20">
         <SectionReveal>
-          <div className="rounded-2xl bg-brand p-8 md:p-10 max-w-2xl">
+          <div
+            className="rounded-2xl p-8 md:p-10 max-w-2xl"
+            style={{ background: "linear-gradient(135deg, #6B2DB5 0%, #4A1A8C 100%)" }}
+          >
             <h3 className="font-serif text-xl font-medium text-white mb-1">
               Media Contact
             </h3>
-            <p className="text-brand-soft text-sm mb-6">
+            <p className="text-white/60 text-sm mb-6">
               For press inquiries, please reach out directly.
             </p>
             <div className="space-y-2">
               <p className="text-white font-semibold">
                 Nichole McTurk Cubbage, DHSc, MS
               </p>
-              <p className="text-brand-soft text-sm">
+              <p className="text-white/60 text-sm">
                 Founder &amp; Executive Director, IVTSF
               </p>
               <a

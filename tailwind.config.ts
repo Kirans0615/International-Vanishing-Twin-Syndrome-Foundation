@@ -10,41 +10,58 @@ const config: Config = {
     },
     extend: {
       colors: {
-        ink: "#1A1A1A",
-        muted: "#6B6560",
-        line: "#E8E4DE",
-        paper: "#FAF8F5",
-        ivory: "#FAF8F5",
-        cloud: "#F2EFE9",
+        ink: "#1A1020",
+        muted: "#6B5F7A",
+        line: "#DDD6EE",
+        paper: "#FAF8FF",
+        ivory: "#FAF8FF",
+        cloud: "#F0EBF8",
 
-        // Primary — deep teal (trust, medical, warm)
+        // Primary — deep purple (IVTSF butterfly)
         brand: {
-          DEFAULT: "#0D7A6E",
-          deep: "#085C52",
-          soft: "#E0F2EF",
-          ink: "#1A1A1A",
-          muted: "#6B6560",
-          line: "#E8E4DE",
-          paper: "#FAF8F5",
+          DEFAULT: "#6B2DB5",
+          deep: "#4A1A8C",
+          soft: "#EDE5F8",
+          ink: "#1A1020",
+          muted: "#6B5F7A",
+          line: "#DDD6EE",
+          paper: "#FAF8FF",
         },
-        // Secondary — dusty rose/mauve (grief-sensitive, gentle)
+        // Secondary — magenta (lower butterfly wings)
         rose: {
-          DEFAULT: "#C2848A",
-          deep: "#9E5A62",
-          soft: "#F8EDEE",
+          DEFAULT: "#C2408C",
+          deep: "#9B2D6E",
+          soft: "#F8E8F2",
         },
-        // Accent — warm gold (hope, advocacy)
+        // Accent — bright blue (wing highlights)
         gold: {
-          DEFAULT: "#C9973A",
-          deep: "#A67C2A",
-          soft: "#FDF3E0",
+          DEFAULT: "#4DB8E8",
+          deep: "#2A9AC8",
+          soft: "#E5F6FC",
+        },
+
+        // Full IVTSF palette namespace
+        ivtsf: {
+          "purple-deep": "#4A1A8C",
+          "purple-royal": "#6B2DB5",
+          "purple-violet": "#8B3FD4",
+          "blue-bright": "#4DB8E8",
+          "blue-sky": "#87CEEB",
+          magenta: "#C2408C",
+          "magenta-deep": "#9B2D6E",
+          text: "#1A1020",
+          bg: "#FAF8FF",
+          surface: "#F0EBF8",
+          muted: "#6B5F7A",
         },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         serif: ["var(--font-lora)", "Georgia", "ui-serif", "serif"],
+        mono: ["var(--font-dm-mono)", "ui-monospace", "monospace"],
       },
       fontSize: {
+        "display-1": ["clamp(3rem, 7vw, 5.5rem)", { lineHeight: "1.02", letterSpacing: "-0.025em" }],
         "display-2": ["clamp(2.5rem, 5vw, 4rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
         "display-3": ["clamp(2rem, 4vw, 3rem)", { lineHeight: "1.1", letterSpacing: "-0.015em" }],
       },
@@ -53,9 +70,9 @@ const config: Config = {
         "3xl": "1.5rem",
       },
       boxShadow: {
-        card: "0 4px 24px -8px rgba(13, 122, 110, 0.08), 0 2px 8px -4px rgba(26, 26, 26, 0.04)",
-        soft: "0 14px 44px -12px rgba(13, 122, 110, 0.18)",
-        ring: "0 0 0 1px rgba(232, 228, 222, 0.8), 0 12px 32px -10px rgba(26, 26, 26, 0.1)",
+        card: "0 4px 24px -8px rgba(107, 45, 181, 0.08), 0 2px 8px -4px rgba(26, 16, 32, 0.04)",
+        soft: "0 14px 44px -12px rgba(107, 45, 181, 0.18)",
+        ring: "0 0 0 1px rgba(221, 214, 238, 0.8), 0 12px 32px -10px rgba(26, 16, 32, 0.1)",
       },
       maxWidth: {
         prose: "70ch",

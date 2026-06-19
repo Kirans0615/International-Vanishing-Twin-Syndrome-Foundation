@@ -41,35 +41,33 @@ export default function DonatePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-brand">
+      <section
+        className="relative isolate overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, #2D1060 0%, #1A0A3D 60%, #0D0520 100%)",
+        }}
+      >
         <FlickeringGrid
-          color="#FAF8F5"
+          color="#8B3FD4"
           maxOpacity={0.06}
           squareSize={4}
           gridGap={6}
           flickerChance={0.1}
           className="absolute inset-0"
         />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 70% at center, rgba(8,92,82,0.4) 0%, transparent 80%)",
-          }}
-          aria-hidden
-        />
         <div className="container relative z-10 py-24 md:py-32 text-center max-w-3xl">
           <SectionReveal>
             <Badge
               variant="soft"
-              className="mb-5 bg-white/15 text-white border-white/20"
+              className="mb-5 bg-white/[0.12] text-white border-white/20"
             >
               Donate
             </Badge>
             <h1 className="font-serif text-display-2 font-medium text-white leading-[1.05] mb-5 balance">
               Your Support Matters.
             </h1>
-            <p className="text-lg md:text-xl text-white/85 leading-relaxed pretty">
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed pretty">
               Help us advance research, support families, and improve how VTS is
               communicated worldwide.
             </p>
@@ -119,21 +117,29 @@ export default function DonatePage() {
                       {PRESET_AMOUNTS.map((v) => {
                         const active = amount === v;
                         return (
-                          <button
+                          <motion.button
                             key={v}
                             type="button"
                             onClick={() => setAmount(v)}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.97 }}
                             className={cn(
                               "relative h-12 rounded-xl border font-semibold text-sm transition-colors",
                               active
-                                ? "border-brand text-white"
+                                ? "border-transparent text-white"
                                 : "border-line text-ink hover:border-brand/40 bg-white"
                             )}
                           >
                             {active && (
                               <motion.span
                                 layoutId="donate-highlight"
-                                className="absolute inset-0 rounded-xl bg-brand"
+                                className="absolute inset-0 rounded-xl"
+                                style={{
+                                  background:
+                                    "linear-gradient(135deg, #6B2DB5 0%, #C2408C 100%)",
+                                  boxShadow:
+                                    "0 0 20px rgba(107,45,181,0.35)",
+                                }}
                                 transition={{
                                   type: "spring",
                                   duration: 0.4,
@@ -142,23 +148,31 @@ export default function DonatePage() {
                               />
                             )}
                             <span className="relative">${v}</span>
-                          </button>
+                          </motion.button>
                         );
                       })}
-                      <button
+                      <motion.button
                         type="button"
                         onClick={() => setAmount("custom")}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.97 }}
                         className={cn(
                           "relative h-12 rounded-xl border font-semibold text-sm transition-colors",
                           amount === "custom"
-                            ? "border-brand text-white"
+                            ? "border-transparent text-white"
                             : "border-line text-ink hover:border-brand/40 bg-white"
                         )}
                       >
                         {amount === "custom" && (
                           <motion.span
                             layoutId="donate-highlight"
-                            className="absolute inset-0 rounded-xl bg-brand"
+                            className="absolute inset-0 rounded-xl"
+                            style={{
+                              background:
+                                "linear-gradient(135deg, #6B2DB5 0%, #C2408C 100%)",
+                              boxShadow:
+                                "0 0 20px rgba(107,45,181,0.35)",
+                            }}
                             transition={{
                               type: "spring",
                               duration: 0.4,
@@ -167,7 +181,7 @@ export default function DonatePage() {
                           />
                         )}
                         <span className="relative">Other</span>
-                      </button>
+                      </motion.button>
                     </div>
                     {amount === "custom" && (
                       <motion.div
@@ -222,7 +236,15 @@ export default function DonatePage() {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full border-0 text-white"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #6B2DB5 0%, #C2408C 100%)",
+                    }}
+                  >
                     <Heart className="h-4 w-4" aria-hidden />
                     Give{" "}
                     {amount === "custom"
@@ -251,15 +273,15 @@ export default function DonatePage() {
               Every dollar has a purpose.
             </h2>
             <p className="text-muted leading-relaxed mb-7 pretty">
-              Most of every dollar funds programs directly. We invest in
-              studies that fill the evidence gap, in plain-language resources
-              for families navigating loss, and in provider education that
-              changes what happens in the clinical encounter.
+              Most of every dollar funds programs directly. We invest in studies
+              that fill the evidence gap, in plain-language resources for
+              families navigating loss, and in provider education that changes
+              what happens in the clinical encounter.
             </p>
             <ul className="space-y-4 mb-8">
               {IMPACT.map((item) => (
                 <li key={item.amount} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 font-serif font-semibold text-brand text-lg w-12">
+                  <span className="flex-shrink-0 font-mono font-semibold text-[#4DB8E8] text-lg w-12">
                     {item.amount}
                   </span>
                   <span className="text-muted leading-relaxed text-sm">
@@ -273,9 +295,7 @@ export default function DonatePage() {
                 className="h-5 w-5 text-brand flex-shrink-0"
                 aria-hidden
               />
-              <span>
-                Secure. We do not sell or share donor information.
-              </span>
+              <span>Secure. We do not sell or share donor information.</span>
             </div>
           </SectionReveal>
         </div>

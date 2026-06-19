@@ -1,8 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Mail, Facebook, Instagram, Linkedin } from "lucide-react";
 import { NAV_LINKS } from "@/components/nav-links";
-import { withBasePath } from "@/lib/basePath";
+import { ButterflySVG } from "@/components/ui/butterfly-svg";
 
 const SOCIAL_LINKS = [
   {
@@ -30,42 +29,37 @@ const NAV_COL_2 = [
 
 export function Footer() {
   return (
-    <footer className="bg-cloud border-t border-line mt-24">
+    <footer className="bg-[#1A0A3D]">
+      {/* Gradient top border */}
+      <div
+        className="h-[1px] w-full"
+        style={{
+          background:
+            "linear-gradient(90deg, #6B2DB5 0%, #4DB8E8 50%, #C2408C 100%)",
+        }}
+      />
       <div className="container py-14">
-        <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr_1fr]">
-          {/* Brand column */}
+        <div className="grid gap-12 lg:grid-cols-[1.8fr_1fr_1fr_1.2fr]">
+          {/* Brand */}
           <div>
             <Link
               href="/"
-              className="flex items-center gap-3 mb-4"
+              className="flex items-center gap-3 mb-5"
               aria-label="IVTSF home"
             >
-              <Image
-                src={withBasePath("/logo.png")}
-                alt="IVTSF logo"
-                width={48}
-                height={48}
-                className="h-12 w-12 object-contain"
-              />
+              <ButterflySVG size={48} animated={false} />
               <span className="flex flex-col leading-tight">
-                <span className="font-semibold text-ink">IVTSF</span>
-                <span className="text-xs text-muted uppercase tracking-wider">
+                <span className="font-semibold text-white">IVTSF</span>
+                <span className="text-xs text-white/50 uppercase tracking-wider">
                   Vanishing Twin Syndrome Foundation
                 </span>
               </span>
             </Link>
-            <p className="text-sm text-muted leading-relaxed max-w-sm font-serif italic mb-5">
-              "A world where VTS is recognized, supported, and accurately
-              communicated."
+            <p className="text-sm text-white/50 leading-relaxed max-w-xs font-serif italic mb-5">
+              &ldquo;A world where VTS is recognized, supported, and accurately
+              communicated.&rdquo;
             </p>
-            <a
-              href="mailto:contact@vanishingtwinsyndrome.org"
-              className="inline-flex items-center gap-2 text-sm font-medium text-brand-deep hover:text-brand transition-colors mb-5"
-            >
-              <Mail className="h-4 w-4" aria-hidden />
-              contact@vanishingtwinsyndrome.org
-            </a>
-            <div className="flex items-center gap-3 mt-3">
+            <div className="flex items-center gap-3">
               {SOCIAL_LINKS.map(({ href, label, Icon }) => (
                 <a
                   key={label}
@@ -73,7 +67,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="inline-flex items-center justify-center h-9 w-9 rounded-full bg-white border border-line text-muted hover:text-brand hover:border-brand/30 transition-colors"
+                  className="inline-flex items-center justify-center h-9 w-9 rounded-full bg-white/[0.08] border border-white/10 text-white/50 hover:text-[#4DB8E8] hover:border-[#4DB8E8]/30 transition-colors"
                 >
                   <Icon className="h-4 w-4" aria-hidden />
                 </a>
@@ -81,17 +75,17 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Nav column 1 */}
+          {/* Explore */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-ink mb-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-5">
               Explore
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {NAV_COL_1.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted hover:text-brand-deep transition-colors"
+                    className="text-sm text-white/60 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -100,17 +94,17 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Nav column 2 */}
+          {/* Get Involved */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-ink mb-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-5">
               Get Involved
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {NAV_COL_2.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted hover:text-brand-deep transition-colors"
+                    className="text-sm text-white/60 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -118,16 +112,37 @@ export function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-5">
+              Contact
+            </h4>
+            <a
+              href="mailto:contact@vanishingtwinsyndrome.org"
+              className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-[#4DB8E8] transition-colors mb-4"
+            >
+              <Mail className="h-4 w-4" aria-hidden />
+              contact@vanishingtwinsyndrome.org
+            </a>
+            <p className="text-xs text-white/35 leading-relaxed mt-4">
+              Nichole McTurk Cubbage, DHSc, MS
+              <br />
+              Founder &amp; Executive Director
+            </p>
+            <p className="text-xs text-white/35 mt-4 leading-relaxed">
+              501(c)(3) nonprofit &middot; US-based
+            </p>
+          </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-line flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-muted">
+        <div className="mt-12 pt-8 border-t border-white/[0.08] text-xs text-white/30">
           <p>
-            © 2025–2026 International Vanishing Twin Syndrome Foundation. All
-            rights reserved. Materials may not be reproduced without permission
-            except for limited educational or personal use with proper
-            attribution.
+            &copy; 2025&ndash;2026 International Vanishing Twin Syndrome
+            Foundation. All rights reserved. Materials may not be reproduced
+            without permission except for limited educational or personal use
+            with proper attribution.
           </p>
-          <p className="flex-shrink-0">501(c)(3) nonprofit · US-based</p>
         </div>
       </div>
     </footer>

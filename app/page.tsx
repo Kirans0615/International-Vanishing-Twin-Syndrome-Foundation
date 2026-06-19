@@ -7,7 +7,6 @@ import {
   FlaskConical,
   BookOpen,
   HeartHandshake,
-  ArrowRight,
   FileText,
   MessageSquare,
   Lightbulb,
@@ -16,20 +15,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { FlickeringGrid } from "@/components/flickering-grid";
+import { ButterflyHero } from "@/components/ui/butterfly-hero";
 import { DisplayCards } from "@/components/display-cards";
 import { CountUp } from "@/components/count-up";
 import { SectionReveal } from "@/components/section-reveal";
-
-const heroVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
-};
-
-const heroItem = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
-};
 
 const PILLARS = [
   {
@@ -54,22 +43,22 @@ const PILLARS = [
 
 const KEY_MESSAGES = [
   {
-    icon: <Lightbulb className="h-5 w-5 text-gold" aria-hidden />,
+    icon: <Lightbulb className="h-5 w-5 text-[#4DB8E8]" aria-hidden />,
     heading: "VTS is common.",
     body: "It affects more than 35% of twin pregnancies and more than 50% of triplet pregnancies — not a rare occurrence.",
   },
   {
-    icon: <HeartHandshake className="h-5 w-5 text-rose" aria-hidden />,
+    icon: <HeartHandshake className="h-5 w-5 text-[#C2408C]" aria-hidden />,
     heading: "Grief responses vary — all are valid.",
     body: "There is no single way to experience a pregnancy in which one baby did not survive. All responses deserve acknowledgment.",
   },
   {
-    icon: <MessageSquare className="h-5 w-5 text-brand" aria-hidden />,
+    icon: <MessageSquare className="h-5 w-5 text-[#8B3FD4]" aria-hidden />,
     heading: "Clear language reduces harm.",
     body: "How VTS is communicated by providers shapes how families understand and process their experience. Words matter.",
   },
   {
-    icon: <FileText className="h-5 w-5 text-brand-deep" aria-hidden />,
+    icon: <FileText className="h-5 w-5 text-[#6B2DB5]" aria-hidden />,
     heading: "Research gaps persist.",
     body: "We advocate for expanded investigation into VTS across all gestational ages, with globally consistent diagnostic criteria.",
   },
@@ -80,83 +69,26 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-paper">
-        <FlickeringGrid
-          color="#0D7A6E"
-          maxOpacity={0.12}
-          squareSize={4}
-          gridGap={6}
-          flickerChance={0.1}
-          className="absolute inset-0"
-        />
-        {/* Radial gradient softens the grid at center */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 65% 70% at center, rgba(250,248,245,0.75) 0%, transparent 75%)",
-          }}
-          aria-hidden
-        />
-        <div className="container relative z-10 text-center max-w-4xl">
-          <motion.div
-            variants={heroVariants}
-            initial="hidden"
-            animate="visible"
-            className="space-y-6"
-          >
-            <motion.div variants={heroItem}>
-              <Badge variant="soft" className="mb-2">
-                A 501(c)(3) nonprofit · US-based
-              </Badge>
-            </motion.div>
-            <motion.h1
-              variants={heroItem}
-              className="font-serif text-display-2 font-medium text-ink leading-[1.05] balance"
-            >
-              Understanding Vanishing Twin Syndrome
-            </motion.h1>
-            <motion.p
-              variants={heroItem}
-              className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto pretty"
-            >
-              Research, clarity, and compassionate support for families and
-              providers worldwide.
-            </motion.p>
-            <motion.div
-              variants={heroItem}
-              className="flex flex-col sm:flex-row gap-3 justify-center pt-2"
-            >
-              <Button asChild size="lg">
-                <Link href="/what-is-vts">
-                  What is VTS?
-                  <ArrowRight className="h-4 w-4" aria-hidden />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-              >
-                <Link href="/about">Our Mission</Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      {/* ── Butterfly Hero ────────────────────────────── */}
+      <ButterflyHero />
 
-      {/* ── Vision bar ───────────────────────────────────── */}
+      {/* ── Vision bar ───────────────────────────────── */}
       <SectionReveal>
-        <div className="w-full bg-brand py-8 px-4 text-center">
+        <div
+          className="w-full py-8 px-4 text-center"
+          style={{
+            background: "linear-gradient(135deg, #6B2DB5 0%, #4A1A8C 100%)",
+          }}
+        >
           <p className="font-serif italic text-white text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            "A world where VTS is recognized, supported, and accurately communicated."
+            &ldquo;A world where VTS is recognized, supported, and accurately
+            communicated.&rdquo;
           </p>
         </div>
       </SectionReveal>
 
-      {/* ── Three pillars ────────────────────────────────── */}
-      <section className="bg-paper">
+      {/* ── Three pillars ────────────────────────────── */}
+      <section className="bg-[#FAF8FF]">
         <div className="container py-24 md:py-32">
           <SectionReveal className="max-w-2xl mx-auto text-center mb-16">
             <Badge variant="outline" className="mb-5">
@@ -170,8 +102,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Stats ────────────────────────────────────────── */}
-      <section className="bg-ink">
+      {/* ── Stats ────────────────────────────────────── */}
+      <section className="bg-[#1A0A3D]">
         <div className="container py-20 md:py-28">
           <div className="grid gap-12 md:grid-cols-3 text-center">
             {[
@@ -196,19 +128,21 @@ export default function HomePage() {
             ].map((stat, i) => (
               <SectionReveal key={stat.label} index={i}>
                 <div className="space-y-2">
-                  <div className="font-serif text-5xl md:text-6xl font-medium text-white">
+                  <div className="font-mono text-5xl md:text-6xl font-medium text-[#4DB8E8]">
                     <CountUp end={stat.value} suffix={stat.suffix} />
                   </div>
-                  <p className="text-brand-soft font-medium text-sm uppercase tracking-wider">
+                  <p className="text-[#8B3FD4] font-medium text-sm uppercase tracking-wider">
                     {stat.label}
                   </p>
-                  <p className="text-muted text-sm leading-relaxed">{stat.sub}</p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    {stat.sub}
+                  </p>
                 </div>
               </SectionReveal>
             ))}
           </div>
           <SectionReveal>
-            <p className="text-center text-xs text-muted mt-10 max-w-xl mx-auto leading-relaxed">
+            <p className="text-center text-xs text-white/40 mt-10 max-w-xl mx-auto leading-relaxed">
               Rates are thought to be significantly higher due to limited early
               detection globally. VTS is not rare — it is underrecognized.
             </p>
@@ -216,8 +150,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Key messages strip ───────────────────────────── */}
-      <section className="bg-ivory">
+      {/* ── Key messages ─────────────────────────────── */}
+      <section className="bg-[#F0EBF8]">
         <div className="container py-24 md:py-28">
           <SectionReveal className="max-w-xl mb-14">
             <Badge variant="gold" className="mb-5">
@@ -230,13 +164,15 @@ export default function HomePage() {
           <div className="grid gap-5 sm:grid-cols-2">
             {KEY_MESSAGES.map((msg, i) => (
               <SectionReveal key={msg.heading} index={i}>
-                <div className="h-full flex gap-5 p-6 rounded-2xl border border-line bg-white shadow-card hover:shadow-soft transition-shadow">
+                <div className="h-full flex gap-5 p-6 rounded-2xl border border-line bg-white shadow-card ivtsf-glow-hover">
                   <div className="flex-shrink-0 mt-0.5">{msg.icon}</div>
                   <div>
                     <h3 className="font-serif font-medium text-ink mb-1.5">
                       {msg.heading}
                     </h3>
-                    <p className="text-sm text-muted leading-relaxed">{msg.body}</p>
+                    <p className="text-sm text-muted leading-relaxed">
+                      {msg.body}
+                    </p>
                   </div>
                 </div>
               </SectionReveal>
@@ -245,25 +181,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Press-approved quote ─────────────────────────── */}
-      <section className="bg-rose-soft">
+      {/* ── Press-approved quote ─────────────────────── */}
+      <section className="bg-[#F8E8F2]">
         <div className="container py-20 md:py-24">
           <SectionReveal className="max-w-3xl mx-auto text-center">
             <blockquote className="font-serif italic text-xl md:text-2xl text-ink leading-relaxed mb-5">
-              "The International Vanishing Twin Syndrome Foundation (IVTSF) is
-              the leading global nonprofit dedicated to improving understanding,
-              communication, and support around vanishing twin syndrome (VTS)
-              across all gestational ages and life stages."
+              &ldquo;The International Vanishing Twin Syndrome Foundation (IVTSF)
+              is the leading global nonprofit dedicated to improving
+              understanding, communication, and support around vanishing twin
+              syndrome (VTS) across all gestational ages and life
+              stages.&rdquo;
             </blockquote>
             <cite className="not-italic text-sm text-muted font-medium">
-              — IVTSF Press Kit
+              &mdash; IVTSF Press Kit
             </cite>
           </SectionReveal>
         </div>
       </section>
 
-      {/* ── Newsletter ───────────────────────────────────── */}
-      <section className="bg-cloud">
+      {/* ── Newsletter ───────────────────────────────── */}
+      <section className="bg-[#FAF8FF]">
         <div className="container py-20">
           <SectionReveal className="max-w-2xl mx-auto text-center">
             <Badge variant="soft" className="mb-5">
@@ -293,7 +230,14 @@ export default function HomePage() {
                 aria-label="Email address"
                 className="flex-1"
               />
-              <Button type="submit">
+              <Button
+                type="submit"
+                className="border-0 text-white"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #6B2DB5 0%, #C2408C 100%)",
+                }}
+              >
                 <Mail className="h-4 w-4" aria-hidden />
                 Subscribe
               </Button>

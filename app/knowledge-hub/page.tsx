@@ -148,7 +148,14 @@ export default function KnowledgeHubPage() {
                 const Icon = r.icon;
                 return (
                   <motion.div key={r.title} variants={childVariants} className="group">
-                    <Card className="h-full p-6 hover:shadow-soft hover:-translate-y-1 transition-all border-line">
+                    <Card
+                      className="h-full p-6 hover:shadow-soft hover:-translate-y-1 transition-all border-line border-l-[3px]"
+                      style={{
+                        borderImage:
+                          "linear-gradient(to bottom, #6B2DB5, #4DB8E8) 1",
+                        borderLeftStyle: "solid",
+                      }}
+                    >
                       <CardContent className="p-0">
                         <div className="flex items-start justify-between mb-5">
                           <div className="inline-flex items-center justify-center h-11 w-11 rounded-xl bg-brand-soft text-brand-deep">

@@ -44,18 +44,24 @@ const OUTCOMES = [
     title: "No visible remains",
     badge: "Most common",
     body: "The most frequent outcome. The tissue of the baby who did not continue to develop is fully reabsorbed early in the pregnancy — often only visible on a first-trimester scan, and absent by later appointments.",
+    gradientFrom: "#6B2DB5",
+    gradientTo: "#8B3FD4",
   },
   {
     icon: Eye,
     title: "Partial remains visible",
     badge: "Occurs in some cases",
     body: "A small cystic area, gestational sac, or partial remains may be visible on later scans. This is sometimes referred to as a blighted ovum if the sac is empty. The baby who continued to develop is typically unaffected.",
+    gradientFrom: "#4DB8E8",
+    gradientTo: "#87CEEB",
   },
   {
     icon: Layers,
     title: "Fetal remains at delivery",
     badge: "Later-pregnancy loss",
     body: "When loss occurs later in pregnancy, fetal remains may be present at delivery — sometimes referred to as fetus papyraceus (calcified remains). Care is individualized and should be grief-informed.",
+    gradientFrom: "#C2408C",
+    gradientTo: "#9B2D6E",
   },
 ];
 
@@ -75,14 +81,14 @@ export default function WhatIsVtsPage() {
             <p className="text-lg md:text-xl text-muted leading-relaxed pretty">
               Vanishing twin syndrome describes the early death of one baby in a
               multifetal pregnancy — most often before the pregnancy is even
-              fully established in a family's awareness. It is not rare. It is
-              not always visible. And it deserves to be understood.
+              fully established in a family&rsquo;s awareness. It is not rare.
+              It is not always visible. And it deserves to be understood.
             </p>
           </SectionReveal>
         </div>
       </section>
 
-      {/* Intro paragraph */}
+      {/* Intro */}
       <section className="container py-16 md:py-20">
         <SectionReveal className="max-w-3xl">
           <p className="text-lg text-muted leading-relaxed pretty mb-4">
@@ -105,7 +111,7 @@ export default function WhatIsVtsPage() {
       </section>
 
       {/* Discovery timeline */}
-      <section className="bg-paper">
+      <section className="bg-[#FAF8FF]">
         <div className="container py-20 md:py-28">
           <SectionReveal className="max-w-2xl mb-14">
             <Badge variant="outline" className="mb-4">
@@ -128,7 +134,7 @@ export default function WhatIsVtsPage() {
                       className="absolute left-[18px] top-1.5 h-4 w-4 rounded-full bg-brand ring-4 ring-brand-soft"
                       aria-hidden
                     />
-                    <p className="text-xs font-semibold uppercase tracking-widest text-gold mb-1">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-[#4DB8E8] mb-1">
                       {m.year}
                     </p>
                     <h3 className="font-serif text-xl font-medium text-ink mb-2">
@@ -143,8 +149,8 @@ export default function WhatIsVtsPage() {
         </div>
       </section>
 
-      {/* Outcomes */}
-      <section className="bg-ivory">
+      {/* Outcomes — with gradient top bars */}
+      <section className="bg-[#F0EBF8]">
         <div className="container py-20 md:py-28">
           <SectionReveal className="max-w-2xl mb-14">
             <Badge variant="outline" className="mb-4">
@@ -164,10 +170,23 @@ export default function WhatIsVtsPage() {
               const Icon = o.icon;
               return (
                 <SectionReveal key={o.title} index={i}>
-                  <Card className="h-full p-7 shadow-card hover:shadow-soft transition-shadow border-line">
-                    <CardContent className="p-0">
+                  <Card className="h-full overflow-hidden shadow-card ivtsf-glow-hover border-line">
+                    {/* Gradient top bar */}
+                    <div
+                      className="h-1.5 w-full"
+                      style={{
+                        background: `linear-gradient(to right, ${o.gradientFrom}, ${o.gradientTo})`,
+                      }}
+                    />
+                    <CardContent className="p-7">
                       <div className="flex items-start justify-between mb-5">
-                        <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-brand-soft text-brand-deep">
+                        <div
+                          className="inline-flex items-center justify-center h-12 w-12 rounded-xl"
+                          style={{
+                            background: `${o.gradientFrom}18`,
+                            color: o.gradientFrom,
+                          }}
+                        >
                           <Icon className="h-6 w-6" aria-hidden />
                         </div>
                         <Badge variant="muted" className="text-xs">
@@ -188,7 +207,7 @@ export default function WhatIsVtsPage() {
       </section>
 
       {/* Occurrence rates */}
-      <section className="bg-paper">
+      <section className="bg-[#FAF8FF]">
         <div className="container py-20 md:py-28">
           <SectionReveal className="max-w-xl mb-12">
             <Badge variant="outline" className="mb-4">
@@ -206,17 +225,23 @@ export default function WhatIsVtsPage() {
               <SectionReveal key={s.label} index={i}>
                 <div className="flex items-baseline justify-between mb-2">
                   <span className="text-ink font-medium">{s.label}</span>
-                  <span className="font-serif text-3xl font-medium text-brand">
+                  <span className="font-mono text-3xl font-medium text-[#6B2DB5]">
                     <CountUp end={s.value} suffix="%" />+
                   </span>
                 </div>
                 <div
-                  className="h-3 rounded-full bg-brand-soft overflow-hidden"
+                  className="h-3 rounded-full overflow-hidden"
+                  style={{ background: "#DDD6EE" }}
                   aria-hidden
                 >
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-brand to-brand-deep"
-                    style={{ width: `${s.value}%`, transition: "width 1.4s ease-out" }}
+                    className="h-full rounded-full"
+                    style={{
+                      width: `${s.value}%`,
+                      background:
+                        "linear-gradient(to right, #6B2DB5, #4DB8E8)",
+                      transition: "width 1.4s ease-out",
+                    }}
                   />
                 </div>
               </SectionReveal>
@@ -239,7 +264,7 @@ export default function WhatIsVtsPage() {
       </section>
 
       {/* Language matters */}
-      <section className="bg-ivory">
+      <section className="bg-[#F0EBF8]">
         <div className="container py-20 md:py-28">
           <SectionReveal className="max-w-2xl mb-12">
             <Badge variant="rose" className="mb-5">
@@ -292,7 +317,7 @@ export default function WhatIsVtsPage() {
                   IVTSF preferred phrasing
                 </h3>
                 <p className="text-xs text-muted uppercase tracking-wider mb-4">
-                  Instead of "surviving twin"
+                  Instead of &ldquo;surviving twin&rdquo;
                 </p>
                 <ul className="space-y-2 text-sm text-muted">
                   {[
@@ -330,7 +355,7 @@ export default function WhatIsVtsPage() {
       </section>
 
       {/* Sub-page links */}
-      <section className="bg-paper">
+      <section className="bg-[#FAF8FF]">
         <div className="container py-20 md:py-24">
           <SectionReveal className="max-w-xl mb-10">
             <h2 className="font-serif text-2xl font-medium text-ink">
@@ -357,7 +382,7 @@ export default function WhatIsVtsPage() {
                 <SectionReveal key={link.href} index={i}>
                   <Link
                     href={link.href}
-                    className="group block h-full p-8 rounded-2xl border border-line bg-white shadow-card hover:shadow-soft hover:border-brand/30 transition-all"
+                    className="group block h-full p-8 rounded-2xl border border-line bg-white shadow-card ivtsf-glow-hover"
                   >
                     <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-brand-soft text-brand-deep mb-5 group-hover:scale-105 transition-transform">
                       <Icon className="h-6 w-6" aria-hidden />
@@ -365,7 +390,9 @@ export default function WhatIsVtsPage() {
                     <h3 className="font-serif text-2xl font-medium text-ink mb-3">
                       {link.title}
                     </h3>
-                    <p className="text-muted leading-relaxed mb-4">{link.body}</p>
+                    <p className="text-muted leading-relaxed mb-4">
+                      {link.body}
+                    </p>
                     <span className="inline-flex items-center gap-1 text-brand font-semibold text-sm group-hover:gap-2 transition-all">
                       Read more
                       <ArrowRight className="h-4 w-4" aria-hidden />

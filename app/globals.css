@@ -23,7 +23,7 @@
     -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply bg-ivory text-ink antialiased;
+    @apply bg-[#FAF8FF] text-[#1A1020] antialiased;
     font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
   }
   h1,
@@ -33,25 +33,37 @@
     font-feature-settings: "ss01" 1, "kern" 1;
   }
   ::selection {
-    background: rgba(13, 122, 110, 0.15);
+    background: rgba(107, 45, 181, 0.2);
   }
   *:focus-visible {
-    @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-ivory rounded-sm;
+    outline: 2px solid #4DB8E8;
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 }
 
 @layer utilities {
-  .gradient-warm {
-    background: radial-gradient(ellipse 80% 60% at top, #F4F0E6 0%, #FAF8F5 60%);
+  .gradient-ivtsf-hero {
+    background: radial-gradient(ellipse at center, #2D1060 0%, #1A0A3D 50%, #0D0520 100%);
+  }
+  .gradient-ivtsf-primary {
+    background: linear-gradient(135deg, #6B2DB5 0%, #C2408C 100%);
+  }
+  .gradient-ivtsf-accent {
+    background: linear-gradient(135deg, #6B2DB5 0%, #4DB8E8 100%);
+  }
+  .ivtsf-glow {
+    box-shadow: 0 0 0 1px #8B3FD4, 0 8px 32px rgba(107, 45, 181, 0.18);
+  }
+  .ivtsf-glow-hover {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .ivtsf-glow-hover:hover {
+    box-shadow: 0 0 0 1px #8B3FD4, 0 8px 32px rgba(107, 45, 181, 0.18);
+    transform: translateY(-4px);
   }
   .gradient-soft {
-    background: linear-gradient(180deg, #F0F5F4 0%, #FAF8F5 100%);
-  }
-  .gradient-teal-soft {
-    background: linear-gradient(180deg, #E0F2EF 0%, #FAF8F5 100%);
-  }
-  .gradient-hero-overlay {
-    background: linear-gradient(180deg, rgba(8,92,82,0.55) 0%, rgba(8,92,82,0.4) 40%, rgba(8,92,82,0.78) 100%);
+    background: linear-gradient(180deg, #EDE5F8 0%, #FAF8FF 100%);
   }
   .image-treatment {
     @apply rounded-2xl shadow-ring overflow-hidden;
@@ -73,6 +85,10 @@
   .pretty {
     text-wrap: pretty;
   }
+}
+
+@media (pointer: fine) {
+  * { cursor: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
