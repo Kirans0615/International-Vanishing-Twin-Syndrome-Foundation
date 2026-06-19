@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Mail, Facebook, Instagram, Linkedin } from "lucide-react";
 import { NAV_LINKS } from "@/components/nav-links";
-import { ButterflyIcon } from "@/components/ui/butterfly-icon";
+import { withBasePath } from "@/lib/basePath";
 
 const SOCIAL_LINKS = [
   {
@@ -44,16 +44,14 @@ export function Footer() {
           <div>
             <Link
               href="/"
-              className="flex items-center gap-3 mb-5"
+              className="inline-flex mb-5"
               aria-label="IVTSF home"
             >
-              <ButterflyIcon size={48} />
-              <span className="flex flex-col leading-tight">
-                <span className="font-semibold text-white">IVTSF</span>
-                <span className="text-xs text-white/50 uppercase tracking-wider">
-                  Vanishing Twin Syndrome Foundation
-                </span>
-              </span>
+              <img
+                src={withBasePath("/logo.png")}
+                alt="International Vanishing Twin Syndrome Foundation"
+                style={{ height: 56, width: "auto" }}
+              />
             </Link>
             <p className="text-sm text-white/50 leading-relaxed max-w-xs font-serif italic mb-5">
               &ldquo;A world where VTS is recognized, supported, and accurately

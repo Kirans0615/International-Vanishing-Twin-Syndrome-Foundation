@@ -7,8 +7,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/components/nav-links";
-import { ButterflyIcon } from "@/components/ui/butterfly-icon";
 import { cn } from "@/lib/utils";
+import { withBasePath } from "@/lib/basePath";
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
@@ -47,21 +47,16 @@ export function Navbar() {
         <div className="flex-none">
           <Link
             href="/"
-            className="flex items-center gap-2.5 group"
+            className="flex items-center group"
             aria-label="IVTSF home"
           >
-            <motion.div
-              whileHover={{ rotate: [0, -8, 8, 0] }}
-              transition={{ duration: 0.4 }}
-            >
-              <ButterflyIcon size={36} />
-            </motion.div>
-            <span className="hidden sm:flex flex-col leading-tight">
-              <span className="font-semibold text-sm text-white">IVTSF</span>
-              <span className="text-[10px] uppercase tracking-wider text-white/70">
-                Vanishing Twin Syndrome Foundation
-              </span>
-            </span>
+            <motion.img
+              src={withBasePath("/logo.png")}
+              alt="International Vanishing Twin Syndrome Foundation"
+              style={{ height: 44, width: "auto", display: "block" }}
+              whileHover={{ scale: 1.04 }}
+              transition={{ duration: 0.2 }}
+            />
           </Link>
         </div>
 
@@ -136,10 +131,11 @@ export function Navbar() {
             className="fixed inset-0 top-0 z-40 flex flex-col bg-[#1A0A3D] pt-20 px-6 pb-8 overflow-y-auto"
           >
             <div className="flex flex-col items-center mb-10">
-              <ButterflyIcon size={80} />
-              <p className="text-white/50 text-xs uppercase tracking-widest mt-3">
-                IVTSF
-              </p>
+              <img
+                src={withBasePath("/logo.png")}
+                alt="International Vanishing Twin Syndrome Foundation"
+                style={{ height: 72, width: "auto" }}
+              />
             </div>
             <nav
               className="flex flex-col gap-1 flex-1"
