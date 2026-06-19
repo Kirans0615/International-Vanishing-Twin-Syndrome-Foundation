@@ -9,6 +9,7 @@ import { Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/components/nav-links";
 import { cn } from "@/lib/utils";
+import { withBasePath } from "@/lib/basePath";
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
@@ -49,7 +50,7 @@ export function Navbar() {
             aria-label="IVTSF home"
           >
             <Image
-              src="/logo.png"
+              src={withBasePath("/logo.png")}
               alt="IVTSF logo"
               width={44}
               height={44}

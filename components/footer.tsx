@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, Facebook, Instagram, Linkedin } from "lucide-react";
 import { NAV_LINKS } from "@/components/nav-links";
+import { withBasePath } from "@/lib/basePath";
 
 const SOCIAL_LINKS = [
   {
@@ -40,7 +41,7 @@ export function Footer() {
               aria-label="IVTSF home"
             >
               <Image
-                src="/logo.png"
+                src={withBasePath("/logo.png")}
                 alt="IVTSF logo"
                 width={48}
                 height={48}

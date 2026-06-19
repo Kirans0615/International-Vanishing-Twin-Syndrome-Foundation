@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 
 interface VideoHeroProps {
   videoSrc: string;
@@ -31,7 +32,7 @@ export function VideoHero({
     <section className="relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-20" aria-hidden>
         <Image
-          src={posterSrc}
+          src={withBasePath(posterSrc)}
           alt={posterAlt}
           fill
           priority
@@ -47,11 +48,11 @@ export function VideoHero({
           muted
           playsInline
           preload="metadata"
-          poster={posterSrc}
+          poster={withBasePath(posterSrc)}
           className="absolute inset-0 -z-10 w-full h-full object-cover"
           aria-hidden
         >
-          <source src={videoSrc} type="video/mp4" />
+          <source src={withBasePath(videoSrc)} type="video/mp4" />
         </video>
       )}
       <div
