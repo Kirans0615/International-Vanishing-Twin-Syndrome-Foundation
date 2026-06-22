@@ -37,7 +37,9 @@ export function Home() {
     <>
       {/* ── HERO ── */}
       <section className="relative h-screen flex flex-col items-center justify-end pb-20 overflow-hidden">
-        <HiggsVideo src={HIGGSFIELD.videos.heroButterfly} fallbackGradient={FALLBACKS.heroDark} className="absolute inset-0 w-full h-full" />
+        <div className="absolute inset-0">
+          <HiggsVideo src={HIGGSFIELD.videos.heroButterfly} fallbackGradient={FALLBACKS.heroDark} className="w-full h-full" />
+        </div>
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.94) 0%, rgba(10,4,28,0.5) 40%, rgba(10,4,28,0.1) 100%)' }}

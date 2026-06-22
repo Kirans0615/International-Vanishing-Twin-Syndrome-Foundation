@@ -36,8 +36,9 @@ export function HiggsVideo({
     }
   }, [])
 
+  const hasPosition = /\b(absolute|fixed|sticky|static)\b/.test(className)
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`${hasPosition ? '' : 'relative '}overflow-hidden ${className}`}>
       <div
         className="absolute inset-0 w-full h-full transition-opacity duration-700"
         style={{ background: fallbackGradient, opacity: failed || !loaded ? 1 : 0 }}
