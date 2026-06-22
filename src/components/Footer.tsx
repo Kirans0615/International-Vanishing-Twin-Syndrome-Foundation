@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Mail, Globe } from 'lucide-react';
 
-const LOGO_PURPLE = `${import.meta.env.BASE_URL}High Res_Outlined Butterfly_Purple Background_IVTSF Logo.png`;
+const LOGO_TRANSPARENT = `${import.meta.env.BASE_URL}Logo Without Background.png`;
 
 export function Footer() {
   return (
@@ -10,8 +10,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid gap-12 lg:grid-cols-[1.8fr_1fr_1.2fr_1fr]">
           <div>
-            <Link to="/" aria-label="IVTSF home" className="inline-block mb-5">
-              <img src={LOGO_PURPLE} alt="IVTSF" style={{ height: 100, width: 'auto' }} />
+            <Link to="/" aria-label="IVTSF home" className="inline-block mb-5 rounded-2xl overflow-hidden" style={{ background: 'rgba(250,248,255,0.97)', padding: '10px 16px' }}>
+              <img src={LOGO_TRANSPARENT} alt="IVTSF" style={{ height: 72, width: 'auto', display: 'block' }} />
             </Link>
             <p className="text-sm text-white/50 leading-relaxed max-w-xs italic mb-5" style={{ fontFamily: 'Lora, serif' }}>
               &ldquo;A world where VTS is recognized, supported, and accurately communicated.&rdquo;

@@ -1,6 +1,7 @@
 import { ExternalLink } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsImage } from '../../components/HiggsImage';
+import { KnowledgeSubNav } from '../../components/KnowledgeSubNav';
 import { HIGGSFIELD } from '../../assets/higgsfield';
 
 const PARTNERS = [
@@ -26,6 +27,8 @@ export function Partners() {
         <h1 className="font-serif font-semibold text-white text-5xl mb-4">Partners &amp; Resources</h1>
         <p className="text-white/70 text-lg max-w-xl">Organizations we collaborate with to advance VTS awareness and support.</p>
       </div>
+
+      <KnowledgeSubNav />
 
       <section className="relative bg-[#FAF8FF] px-6 py-20 overflow-hidden">
         <HiggsImage src={HIGGSFIELD.images.partnersTexture} alt="" fallbackGradient="transparent" className="absolute inset-0 w-full h-full object-cover pointer-events-none" style={{ opacity: 0.05 }} />

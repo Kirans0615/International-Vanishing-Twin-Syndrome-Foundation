@@ -69,13 +69,14 @@ export function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-      style={scrolled ? {
-        background: 'rgba(13,5,32,0.85)',
-        backdropFilter: 'blur(24px)',
-        WebkitBackdropFilter: 'blur(24px)',
-        borderBottom: '1px solid rgba(255,255,255,0.08)',
-      } : {}}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: 'rgba(250,248,255,0.97)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(107,45,181,0.12)',
+        boxShadow: scrolled ? '0 2px 16px rgba(0,0,0,0.08)' : '0 1px 4px rgba(0,0,0,0.04)',
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center h-20">
         <Link to="/" className="flex-none mr-8" aria-label="IVTSF home">
@@ -93,13 +94,13 @@ export function Navbar() {
               <Link
                 to={item.href}
                 className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 relative ${
-                  isActive(item.href) ? 'text-[#4DB8E8]' : 'text-white/75 hover:text-white'
+                  isActive(item.href) ? 'text-[#6B2DB5]' : 'text-[#1A1020]/65 hover:text-[#4A1A8C]'
                 }`}
               >
                 {item.label}
                 {item.hasDropdown && <ChevronDown size={14} />}
                 {isActive(item.href) && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-[#4DB8E8]" />
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-[#6B2DB5]" />
                 )}
               </Link>
               {item.hasDropdown && openDropdown === item.href && (
@@ -132,7 +133,7 @@ export function Navbar() {
             Donate Now
           </Link>
           <button
-            className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
+            className="lg:hidden p-2 text-[#1A1020]/70 hover:text-[#4A1A8C] transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}

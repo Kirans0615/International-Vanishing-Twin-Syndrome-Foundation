@@ -1,6 +1,7 @@
 import { AlertTriangle, Heart, Users, ExternalLink, Phone } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsVideo } from '../../components/HiggsVideo';
+import { KnowledgeSubNav } from '../../components/KnowledgeSubNav';
 import { HIGGSFIELD } from '../../assets/higgsfield';
 
 const RESOURCES = [
@@ -33,8 +34,10 @@ export function PeerSupport() {
         </div>
       </div>
 
+      <KnowledgeSubNav />
+
       {/* PROMINENT CRISIS DISCLAIMER */}
-      <section className="px-6 py-6 sticky top-20 z-30">
+      <section className="px-6 py-6">
         <div className="max-w-3xl mx-auto rounded-2xl border-2 border-amber-400 p-6" style={{ background: '#FFFBEB' }}>
           <div className="flex items-start gap-4">
             <AlertTriangle size={24} color="#D97706" className="flex-shrink-0 mt-0.5" aria-hidden />

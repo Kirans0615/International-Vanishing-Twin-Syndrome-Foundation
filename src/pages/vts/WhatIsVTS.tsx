@@ -3,6 +3,7 @@ import { AlertCircle, ChevronRight } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsVideo } from '../../components/HiggsVideo';
 import { ParticleField } from '../../components/ParticleField';
+import { VtsSubNav } from '../../components/VtsSubNav';
 import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 const SUB_NAV = [
@@ -45,15 +46,7 @@ export function WhatIsVTS() {
         </div>
       </div>
 
-      <div className="sticky top-20 z-40 border-b border-[#8B3FD4]/15 bg-[#FAF8FF]/95 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 flex gap-1 overflow-x-auto py-3">
-          {SUB_NAV.map(({ label, href }) => (
-            <Link key={href} to={href} className="px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors text-[#1A1020]/60 hover:text-[#6B2DB5] hover:bg-[#8B3FD4]/5">
-              {label}
-            </Link>
-          ))}
-        </div>
-      </div>
+      <VtsSubNav />
 
       <section className="bg-[#FAF8FF] px-6 py-20">
         <div className="max-w-5xl mx-auto">

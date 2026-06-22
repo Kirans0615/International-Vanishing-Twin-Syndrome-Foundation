@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Search, ChevronDown, ChevronUp } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsVideo } from '../../components/HiggsVideo';
+import { VtsSubNav } from '../../components/VtsSubNav';
 import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 type Category = 'All' | 'Clinical Terms' | 'Pregnancy & Development' | 'Genetic Terms' | 'Grief & Support';
@@ -54,6 +55,8 @@ export function KeyTerms() {
           <p className="text-white/70 text-lg">A reference guide for clinical, developmental, and grief-related terms.</p>
         </div>
       </div>
+
+      <VtsSubNav />
 
       <section className="bg-[#FAF8FF] px-6 py-16">
         <div className="max-w-3xl mx-auto">

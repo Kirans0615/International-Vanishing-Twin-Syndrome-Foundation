@@ -1,6 +1,7 @@
 import { CheckCircle, Search, FileText, FlaskConical, AlertTriangle } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsVideo } from '../../components/HiggsVideo';
+import { VtsSubNav } from '../../components/VtsSubNav';
 import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 const DIAGNOSTIC_TERMS = [
@@ -51,6 +52,8 @@ export function Diagnosing() {
           <p className="text-white/70 text-lg max-w-xl leading-relaxed">Understanding how VTS is identified — prenatally and postpartum.</p>
         </div>
       </div>
+
+      <VtsSubNav />
 
       <section className="bg-[#FAF8FF] px-6 py-20">
         <div className="max-w-5xl mx-auto">

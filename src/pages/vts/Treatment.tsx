@@ -1,6 +1,7 @@
 import { AlertTriangle, ExternalLink, Heart } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsVideo } from '../../components/HiggsVideo';
+import { VtsSubNav } from '../../components/VtsSubNav';
 import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
@@ -19,6 +20,8 @@ export function Treatment() {
           <p className="text-white/70 text-lg max-w-xl leading-relaxed">Understanding the clinical and supportive approaches available.</p>
         </div>
       </div>
+
+      <VtsSubNav />
 
       <section className="bg-[#FAF8FF] px-6 py-20">
         <div className="max-w-3xl mx-auto">

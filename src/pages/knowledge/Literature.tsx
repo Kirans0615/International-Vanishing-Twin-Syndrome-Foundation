@@ -1,6 +1,7 @@
 import { ExternalLink } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsVideo } from '../../components/HiggsVideo';
+import { KnowledgeSubNav } from '../../components/KnowledgeSubNav';
 import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 const SCHOLARLY = [
@@ -38,6 +39,8 @@ export function Literature() {
           <p className="text-white/70 text-lg max-w-xl">Scholarly contributions and ongoing research projects.</p>
         </div>
       </div>
+
+      <KnowledgeSubNav />
 
       <section className="bg-[#FAF8FF] px-6 py-20">
         <div className="max-w-5xl mx-auto">

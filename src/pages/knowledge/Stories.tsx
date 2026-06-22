@@ -2,6 +2,7 @@ import { AlertTriangle, Heart, ArrowRight } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsVideo } from '../../components/HiggsVideo';
 import { ParticleField } from '../../components/ParticleField';
+import { KnowledgeSubNav } from '../../components/KnowledgeSubNav';
 import { HIGGSFIELD } from '../../assets/higgsfield';
 
 const STORIES = [
@@ -48,6 +49,8 @@ export function Stories() {
           <p className="text-white/70 text-lg max-w-xl">Personal narratives shared with permission, honoring diverse experiences.</p>
         </div>
       </div>
+
+      <KnowledgeSubNav />
 
       {/* SENSITIVE CONTENT NOTICE */}
       <section className="px-6 py-6">
