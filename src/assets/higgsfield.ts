@@ -24,9 +24,9 @@ export const HIGGSFIELD = {
     contactHero: 'https://d8j0ntlcm91z4.cloudfront.net/REPLACE_envelope.mp4',
   },
   images: {
-    teamBg: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2FREPLACE_watercolor.png&w=1280&q=85',
-    missionTexture: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2FREPLACE_texture.png&w=1280&q=85',
-    partnersTexture: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2FREPLACE_partners_bg.png&w=1280&q=85',
+    teamBg: 'https://d8j0ntlcm91z4.cloudfront.net/user_3F0rtuqhVXOrvbhcD2uKbDzBqES/hf_20260622_030024_2ad5245b-9b8a-4593-beaa-b539774c0b32.png',
+    missionTexture: 'https://d8j0ntlcm91z4.cloudfront.net/user_3F0rtuqhVXOrvbhcD2uKbDzBqES/hf_20260622_030027_1a663873-73dc-4378-adf6-995581534e68.png',
+    partnersTexture: 'https://d8j0ntlcm91z4.cloudfront.net/user_3F0rtuqhVXOrvbhcD2uKbDzBqES/hf_20260622_030030_aec64e84-6e40-44a4-9eb8-eb0285d9c734.png',
   },
 }
 
