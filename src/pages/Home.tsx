@@ -38,11 +38,24 @@ export function Home() {
       {/* ── HERO ── */}
       <section className="relative h-screen flex flex-col items-center justify-end pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <HiggsVideo src={HIGGSFIELD.videos.heroButterfly} fallbackGradient={FALLBACKS.heroDark} className="w-full h-full" />
+          <HiggsVideo src={HIGGSFIELD.videos.homePregnancy} fallbackGradient={FALLBACKS.heroDark} className="w-full h-full" opacity={0.55} />
         </div>
+        {/* Colour-grade: deep purple tint sits over the whole frame */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.94) 0%, rgba(10,4,28,0.5) 40%, rgba(10,4,28,0.1) 100%)' }}
+          style={{ background: 'rgba(13,5,32,0.45)', mixBlendMode: 'multiply' }}
+          aria-hidden
+        />
+        {/* Legibility: strong vignette pushes text up from the bottom */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.96) 0%, rgba(10,4,28,0.72) 30%, rgba(10,4,28,0.25) 60%, rgba(10,4,28,0.0) 100%)' }}
+          aria-hidden
+        />
+        {/* Top fade so navbar area stays clean */}
+        <div
+          className="absolute inset-x-0 top-0 h-32 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, rgba(10,4,28,0.7) 0%, transparent 100%)' }}
           aria-hidden
         />
         <ParticleField count={55} />

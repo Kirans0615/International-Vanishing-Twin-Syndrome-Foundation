@@ -3,6 +3,7 @@ const CDN = 'https://d8j0ntlcm91z4.cloudfront.net/user_3F0rtuqhVXOrvbhcD2uKbDzBq
 export const HIGGSFIELD = {
   videos: {
     heroButterfly:    `${CDN}/hf_20260622_032325_785ceb15-d2ad-45ca-b150-91116f9f2dd0.mp4`,
+    homePregnancy:    `${CDN}/hf_20260622_041958_3f1733d9-817a-4474-8325-1b4cf288d85d.mp4`,
     homeWisps:        `${CDN}/hf_20260622_032332_9149c346-0515-4dba-a7ab-3c3164d98c9d.mp4`,
     homeMissionCard:  `${CDN}/hf_20260622_032340_90379666-52fd-4166-8b1c-a7b90c36ea82.mp4`,
     homeOrbCard:      `${CDN}/hf_20260622_032349_757a6b26-df8b-4a90-9b92-924696f93943.mp4`,
