@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
 import { BookOpen, Users, Heart, MessageSquare, ArrowRight } from 'lucide-react';
-import { VideoBackground } from '../../components/VideoBackground';
 import { useReveal } from '../../hooks/useInView';
-
-// HIGGSFIELD ASSET
-// Prompt: "Purple and blue abstract data visualization — soft glowing nodes and connections floating in dark space, scientific and beautiful, seamless loop"
-// Replace URL: https://d8j0ntlcm91z4.cloudfront.net/[ID].mp4
-const HUB_HERO_VIDEO: string | undefined = undefined;
+import { HiggsVideo } from '../../components/HiggsVideo';
+import { ParticleField } from '../../components/ParticleField';
+import { GlowOrbs } from '../../components/GlowOrbs';
+import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 const SUB_NAV = [
   { label: 'Literature Repository', href: '/knowledge-hub/literature' },
@@ -31,12 +29,10 @@ export function KnowledgeHub() {
   return (
     <>
       <div className="relative h-[60vh] overflow-hidden rounded-b-3xl">
-        <VideoBackground
-          src={HUB_HERO_VIDEO}
-          className="absolute inset-0 w-full h-full"
-          fallbackStyle={{ background: 'radial-gradient(ellipse at center, #2D1060 0%, #0D0520 100%)' }}
-        />
+        <HiggsVideo src={HIGGSFIELD.videos.knowledgeHero} fallbackGradient={FALLBACKS.darkNebula} className="absolute inset-0 w-full h-full" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.9) 0%, rgba(10,4,28,0.4) 100%)' }} aria-hidden />
+        <ParticleField count={50} />
+        <GlowOrbs />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <h1 className="font-serif font-semibold text-white text-6xl mb-4 tracking-[-0.02em]">Knowledge Hub</h1>
           <p className="text-white/70 text-xl max-w-xl leading-relaxed mb-8">Evidence-based resources for families, providers, and researchers.</p>

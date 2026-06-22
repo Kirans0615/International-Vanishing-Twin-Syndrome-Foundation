@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
 import { AlertCircle, ChevronRight } from 'lucide-react';
-import { VideoBackground } from '../../components/VideoBackground';
 import { useReveal } from '../../hooks/useInView';
-
-// HIGGSFIELD ASSET
-// Prompt: "Extreme close-up of a purple butterfly wing slowly moving in gentle breeze, iridescent scales catching golden light, dark bokeh background, macro photography, 4K, dreamy slow motion seamless loop"
-// Replace URL: https://d8j0ntlcm91z4.cloudfront.net/[ID].mp4
-const VTS_HERO_VIDEO: string | undefined = undefined;
+import { HiggsVideo } from '../../components/HiggsVideo';
+import { ParticleField } from '../../components/ParticleField';
+import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 const SUB_NAV = [
   { label: 'Overview', href: '/what-is-vts' },
@@ -37,12 +34,9 @@ export function WhatIsVTS() {
   return (
     <>
       <div className="relative h-[65vh] overflow-hidden rounded-b-3xl">
-        <VideoBackground
-          src={VTS_HERO_VIDEO}
-          className="absolute inset-0 w-full h-full"
-          fallbackStyle={{ background: 'radial-gradient(ellipse at 50% 30%, #6B2DB5 0%, #1A0A3D 60%, #0D0520 100%)' }}
-        />
+        <HiggsVideo src={HIGGSFIELD.videos.vtsHero} fallbackGradient={FALLBACKS.heroDark} className="absolute inset-0 w-full h-full" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.9) 0%, rgba(10,4,28,0.4) 100%)' }} aria-hidden />
+        <ParticleField count={40} />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <h1 className="font-serif font-semibold text-white tracking-[-0.02em] mb-4" style={{ fontSize: 'clamp(2.5rem,5vw,4rem)' }}>
             What is Vanishing<br />Twin Syndrome?

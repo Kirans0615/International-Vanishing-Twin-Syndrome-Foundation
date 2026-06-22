@@ -1,5 +1,7 @@
 import { ExternalLink } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
+import { HiggsImage } from '../../components/HiggsImage';
+import { HIGGSFIELD } from '../../assets/higgsfield';
 
 const PARTNERS = [
   { name: 'ISUOG', full: 'International Society of Ultrasound in Obstetrics and Gynecology', desc: 'Sets global standards for obstetric ultrasound practice, including guidelines relevant to VTS diagnosis and monitoring.', href: 'https://www.isuog.org' },
@@ -25,8 +27,9 @@ export function Partners() {
         <p className="text-white/70 text-lg max-w-xl">Organizations we collaborate with to advance VTS awareness and support.</p>
       </div>
 
-      <section className="bg-[#FAF8FF] px-6 py-20">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative bg-[#FAF8FF] px-6 py-20 overflow-hidden">
+        <HiggsImage src={HIGGSFIELD.images.partnersTexture} alt="" fallbackGradient="transparent" className="absolute inset-0 w-full h-full object-cover pointer-events-none" style={{ opacity: 0.05 }} />
+        <div className="relative z-10 max-w-5xl mx-auto">
           <RevealDiv className="mb-10">
             <p className="text-[#1A1020]/65 text-lg leading-relaxed max-w-2xl">
               IVTSF collaborates with organizations worldwide to advance awareness, support families, and improve care for those affected by vanishing twin syndrome.

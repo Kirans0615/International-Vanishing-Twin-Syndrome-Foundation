@@ -1,6 +1,8 @@
 import { Users, ExternalLink, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { useReveal } from '../hooks/useInView';
+import { HiggsVideo } from '../components/HiggsVideo';
+import { HIGGSFIELD } from '../assets/higgsfield';
 
 const BOARD_POSITIONS = [
   {
@@ -84,13 +86,14 @@ function RevealDiv({ children, className = '' }: { children: React.ReactNode; cl
 export function Volunteer() {
   return (
     <>
-      <div
-        className="relative h-[50vh] flex flex-col items-center justify-center text-center px-6 pt-20"
-        style={{ background: 'linear-gradient(135deg, #4A1A8C 0%, #2D1060 50%, #9B2D6E 100%)' }}
-      >
-        <Users size={40} color="#4DB8E8" className="mb-5" aria-hidden />
-        <h1 className="font-serif font-semibold text-white text-5xl mb-4 tracking-[-0.02em]">Volunteer</h1>
-        <p className="text-white/70 text-xl max-w-lg leading-relaxed">Join our team and help advance awareness, research, and support for VTS families worldwide.</p>
+      <div className="relative h-[50vh] overflow-hidden">
+        <HiggsVideo src={HIGGSFIELD.videos.volunteerHero} fallbackGradient="linear-gradient(135deg, #4A1A8C 0%, #2D1060 50%, #9B2D6E 100%)" className="absolute inset-0 w-full h-full" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.85) 0%, rgba(10,4,28,0.3) 100%)' }} aria-hidden />
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
+          <Users size={40} color="#4DB8E8" className="mb-5" aria-hidden />
+          <h1 className="font-serif font-semibold text-white text-5xl mb-4 tracking-[-0.02em]">Volunteer</h1>
+          <p className="text-white/70 text-xl max-w-lg leading-relaxed">Join our team and help advance awareness, research, and support for VTS families worldwide.</p>
+        </div>
       </div>
 
       <section className="bg-[#FAF8FF] px-6 py-20">

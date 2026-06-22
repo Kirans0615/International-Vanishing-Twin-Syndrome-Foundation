@@ -1,49 +1,13 @@
-import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Heart, BookOpen, FlaskConical, HeartHandshake, Stethoscope, Users, Handshake } from 'lucide-react';
-import { VideoBackground } from '../components/VideoBackground';
 import { useReveal } from '../hooks/useInView';
-
-// HIGGSFIELD ASSET
-// Prompt: "A single luminous purple and magenta butterfly with iridescent wings slowly opens from closed to fully spread in extreme slow motion, floating gently upward, soft bioluminescent glow emanating from wing edges, photorealistic macro, 4K cinematic, deep dark cosmic purple background, dreamlike depth of field, seamless loop"
-// Replace URL: https://d8j0ntlcm91z4.cloudfront.net/[ID].mp4
-const HOME_HERO_VIDEO: string | undefined = undefined;
-
-// HIGGSFIELD ASSET
-// Prompt: "Soft abstract purple violet and teal light wisps and particles slowly drifting in darkness, warm and ethereal, nonprofit emotional warmth, ultra-wide cinematic, seamless loop, very subtle motion"
-const WHO_BG_VIDEO: string | undefined = undefined;
-
-// HIGGSFIELD ASSET
-// Prompt: "Deep space purple nebula slowly breathing and shifting, dark cosmic background, very subtle motion, cinematic seamless loop"
-const NEBULA_VIDEO: string | undefined = undefined;
-
-// HIGGSFIELD ASSET
-// Prompt: "Abstract flowing purple particles and light streams, dark background, seamless loop, scientific ethereal"
-const CARD1_VIDEO: string | undefined = undefined;
-
-// HIGGSFIELD ASSET
-// Prompt: "Purple aurora-like light slowly shifting, dark background, dreamlike, seamless loop"
-const CARD4_VIDEO: string | undefined = undefined;
-
-// HIGGSFIELD ASSET
-// Prompt: "Purple wind chime with soft light and gentle motion, outdoor bokeh background, golden and violet tones, cinematic slow motion"
-const SHOP_VIDEO: string | undefined = undefined;
+import { HiggsVideo } from '../components/HiggsVideo';
+import { ParticleField } from '../components/ParticleField';
+import { GlowOrbs } from '../components/GlowOrbs';
+import { HIGGSFIELD, FALLBACKS } from '../assets/higgsfield';
 
 const PARTNER_MARQUEE = ['ICOMBO', 'Butterfly Project', 'ISUOG', 'MoA', 'Bereavement UK', 'IPEN', 'Global Twins', 'Wind River Chimes'];
 
-const PARTICLE_DATA = Array.from({ length: 55 }, (_, i) => {
-  const seed = i * 137.508;
-  return {
-    id: i,
-    x: (seed % 100),
-    y: ((seed * 1.618) % 100),
-    size: 2 + (i % 3),
-    color: ['#4DB8E8', '#8B3FD4', '#C2408C', '#87CEEB'][i % 4],
-    opacity: 0.15 + (i % 3) * 0.08,
-    duration: 5 + (i % 6),
-    delay: (i % 7),
-  };
-});
 
 const AUDIENCE_CARDS = [
   { Icon: Heart, color: '#C2408C', title: 'Parents &\nFamilies', desc: 'Resources, stories, and support for those who have experienced VTS.', link: '/knowledge-hub/peer-support', cta: 'Find Support' },
@@ -69,40 +33,18 @@ function RevealDiv({ children, className = '' }: { children: React.ReactNode; cl
 }
 
 export function Home() {
-  const particles = useMemo(() => PARTICLE_DATA, []);
-
   return (
     <>
       {/* ── HERO ── */}
       <section className="relative h-screen flex flex-col items-center justify-end pb-20 overflow-hidden">
-        <VideoBackground
-          src={HOME_HERO_VIDEO}
-          className="absolute inset-0 w-full h-full"
-          fallbackStyle={{ background: 'radial-gradient(ellipse at center, #2D1060 0%, #1A0A3D 50%, #0D0520 100%)' }}
-        />
+        <HiggsVideo src={HIGGSFIELD.videos.heroButterfly} fallbackGradient={FALLBACKS.heroDark} className="absolute inset-0 w-full h-full" />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.94) 0%, rgba(10,4,28,0.5) 40%, rgba(10,4,28,0.1) 100%)' }}
           aria-hidden
         />
-        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
-          {particles.map((p) => (
-            <div
-              key={p.id}
-              className="absolute rounded-full animate-particle-drift"
-              style={{
-                left: `${p.x}%`,
-                top: `${p.y}%`,
-                width: p.size,
-                height: p.size,
-                background: p.color,
-                opacity: p.opacity,
-                ['--duration' as string]: `${p.duration}s`,
-                ['--delay' as string]: `${p.delay}s`,
-              }}
-            />
-          ))}
-        </div>
+        <ParticleField count={55} />
+        <GlowOrbs />
 
         <div className="relative z-10 flex flex-col items-center text-center px-8 w-full max-w-5xl mx-auto">
           <p
@@ -113,10 +55,12 @@ export function Home() {
           </p>
 
           <h1
-            className="font-serif font-semibold text-white tracking-[-0.03em] leading-[1.08] mb-6 animate-fade-slide-up"
-            style={{ fontSize: 'clamp(3rem,6vw,5.5rem)', animationDelay: '0.6s', animationFillMode: 'both' }}
+            className="font-serif font-semibold text-white tracking-[-0.03em] leading-[1.08] mb-6"
+            style={{ fontSize: 'clamp(3rem,6vw,5.5rem)' }}
           >
-            Understanding.<br />Research.<br />Support.
+            <span className="block animate-hero-text" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>Understanding.</span>
+            <span className="block animate-hero-text" style={{ animationDelay: '0.65s', animationFillMode: 'both' }}>Research.</span>
+            <span className="block animate-hero-text" style={{ animationDelay: '0.9s', animationFillMode: 'both' }}>Support.</span>
           </h1>
 
           <p
@@ -187,12 +131,7 @@ export function Home() {
 
       {/* ── WHO ARE YOU ── */}
       <section className="bg-[#FAF8FF] px-6 py-24 relative overflow-hidden">
-        <VideoBackground
-          src={WHO_BG_VIDEO}
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          opacity={0.04}
-          fallbackStyle={{ background: 'transparent' }}
-        />
+        <HiggsVideo src={HIGGSFIELD.videos.homeWisps} fallbackGradient="transparent" className="absolute inset-0 w-full h-full" opacity={0.06} />
         <div className="relative z-10 max-w-7xl mx-auto">
           <RevealDiv className="text-center mb-4">
             <h2 className="font-serif font-semibold text-[#1A1020] tracking-[-0.03em]" style={{ fontSize: 'clamp(2rem,4vw,3.5rem)' }}>
@@ -235,11 +174,7 @@ export function Home() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <RevealDiv className="lg:col-span-2">
               <div className="card-hover rounded-2xl min-h-80 relative overflow-hidden">
-                <VideoBackground
-                  src={CARD1_VIDEO}
-                  className="absolute inset-0 w-full h-full"
-                  fallbackStyle={{ background: 'linear-gradient(135deg, #4A1A8C, #2D1060)' }}
-                />
+                <HiggsVideo src={HIGGSFIELD.videos.homeMissionCard} fallbackGradient="linear-gradient(135deg, #4A1A8C, #2D1060)" className="absolute inset-0 w-full h-full" opacity={0.6} />
                 <div className="absolute inset-0" style={{ background: 'rgba(74,26,140,0.85)' }} />
                 <div className="relative z-10 p-8 h-full flex flex-col justify-end min-h-80">
                   <FlaskConical size={32} color="#4DB8E8" className="mb-4" aria-hidden />
@@ -257,13 +192,7 @@ export function Home() {
             </RevealDiv>
             <RevealDiv className="reveal-delay-2">
               <div className="card-hover rounded-2xl min-h-52 relative overflow-hidden">
-                <VideoBackground
-                  src={CARD4_VIDEO}
-                  className="absolute inset-0 w-full h-full"
-                  opacity={0.4}
-                  fallbackStyle={{ background: '#1A0A3D' }}
-                />
-                <div className="absolute inset-0" style={{ background: '#1A0A3D' }} />
+                <HiggsVideo src={HIGGSFIELD.videos.homeOrbCard} fallbackGradient={FALLBACKS.darkNebula} className="absolute inset-0 w-full h-full" opacity={0.4} />
                 <div className="relative z-10 p-7 h-full flex flex-col justify-end min-h-52">
                   <HeartHandshake size={28} color="#4DB8E8" className="mb-4" aria-hidden />
                   <h3 className="font-serif font-semibold text-white text-xl mb-3">Family &amp;<br />Provider Support</h3>
@@ -277,11 +206,7 @@ export function Home() {
 
       {/* ── VTS AT A GLANCE ── */}
       <section className="relative overflow-hidden px-6 py-20">
-        <VideoBackground
-          src={NEBULA_VIDEO}
-          className="absolute inset-0 w-full h-full"
-          fallbackStyle={{ background: 'radial-gradient(ellipse at center, #1A0A3D 0%, #0D0520 100%)' }}
-        />
+        <HiggsVideo src={HIGGSFIELD.videos.homeStatsNebula} fallbackGradient={FALLBACKS.darkNebula} className="absolute inset-0 w-full h-full" />
         <div className="absolute inset-0" style={{ background: 'rgba(13,5,32,0.82)' }} aria-hidden />
         <div className="relative z-10 max-w-[88rem] mx-auto">
           <RevealDiv className="text-center mb-8">
@@ -344,11 +269,7 @@ export function Home() {
           </RevealDiv>
           <RevealDiv className="reveal-right">
             <div className="rounded-2xl overflow-hidden h-80 relative">
-              <VideoBackground
-                src={SHOP_VIDEO}
-                className="w-full h-full"
-                fallbackStyle={{ background: 'linear-gradient(135deg, #4A1A8C, #6B2DB5, #C2408C)' }}
-              />
+              <HiggsVideo src={HIGGSFIELD.videos.homeShopChime} fallbackGradient={FALLBACKS.magentaDeep} className="absolute inset-0 w-full h-full" />
               <div className="absolute inset-x-0 bottom-0 h-1/3" style={{ background: 'linear-gradient(to top, rgba(74,26,140,0.7), transparent)' }} aria-hidden />
             </div>
           </RevealDiv>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
+import { ParticleField } from '../../components/ParticleField';
 
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const { ref, className: rc } = useReveal();
@@ -14,11 +15,12 @@ export function Newsletters() {
   return (
     <>
       <div
-        className="relative h-[35vh] flex flex-col items-center justify-center text-center px-6 pt-20"
+        className="relative h-[35vh] overflow-hidden flex flex-col items-center justify-center text-center px-6 pt-20"
         style={{ background: 'linear-gradient(135deg, #6B2DB5 0%, #4A1A8C 100%)' }}
       >
-        <h1 className="font-serif font-semibold text-white text-5xl mb-4">Newsletters</h1>
-        <p className="text-white/70 text-lg">Stay informed about VTS research, events, and advocacy.</p>
+        <ParticleField count={20} />
+        <h1 className="relative z-10 font-serif font-semibold text-white text-5xl mb-4">Newsletters</h1>
+        <p className="relative z-10 text-white/70 text-lg">Stay informed about VTS research, events, and advocacy.</p>
       </div>
 
       <section className="bg-[#FAF8FF] px-6 py-20">

@@ -1,5 +1,7 @@
 import { AlertTriangle, Heart, Users, ExternalLink, Phone } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
+import { HiggsVideo } from '../../components/HiggsVideo';
+import { HIGGSFIELD } from '../../assets/higgsfield';
 
 const RESOURCES = [
   { name: 'Postpartum Support International', desc: 'Helpline and resources for perinatal mental health, including grief after pregnancy loss.', href: 'https://www.postpartum.net', phone: '1-800-944-4773' },
@@ -23,12 +25,12 @@ function RevealDiv({ children, className = '' }: { children: React.ReactNode; cl
 export function PeerSupport() {
   return (
     <>
-      <div
-        className="relative h-[40vh] flex flex-col items-center justify-center text-center px-6 pt-20"
-        style={{ background: 'linear-gradient(135deg, #9B2D6E 0%, #4A1A8C 60%, #2D1060 100%)' }}
-      >
-        <h1 className="font-serif font-semibold text-white text-5xl mb-4">Peer Support</h1>
-        <p className="text-white/70 text-lg max-w-xl">Community resources and mutual aid for those affected by vanishing twin syndrome.</p>
+      <div className="relative h-[40vh] overflow-hidden">
+        <HiggsVideo src={HIGGSFIELD.videos.peerSupportHero} fallbackGradient="linear-gradient(135deg, #9B2D6E 0%, #4A1A8C 60%, #2D1060 100%)" className="absolute inset-0 w-full h-full" />
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
+          <h1 className="font-serif font-semibold text-white text-5xl mb-4">Peer Support</h1>
+          <p className="text-white/70 text-lg max-w-xl">Community resources and mutual aid for those affected by vanishing twin syndrome.</p>
+        </div>
       </div>
 
       {/* PROMINENT CRISIS DISCLAIMER */}

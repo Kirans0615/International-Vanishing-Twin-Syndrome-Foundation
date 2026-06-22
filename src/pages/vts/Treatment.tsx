@@ -1,11 +1,7 @@
 import { AlertTriangle, ExternalLink, Heart } from 'lucide-react';
-import { VideoBackground } from '../../components/VideoBackground';
 import { useReveal } from '../../hooks/useInView';
-
-// HIGGSFIELD ASSET
-// Prompt: "Warm gentle light filtering through purple and white fabric, soft and healing, slow drift, cinematic, emotional warmth, seamless loop"
-// Replace URL: https://d8j0ntlcm91z4.cloudfront.net/[ID].mp4
-const TREATMENT_VIDEO: string | undefined = undefined;
+import { HiggsVideo } from '../../components/HiggsVideo';
+import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const { ref, className: rc } = useReveal();
@@ -16,11 +12,7 @@ export function Treatment() {
   return (
     <>
       <div className="relative h-[50vh] overflow-hidden rounded-b-3xl">
-        <VideoBackground
-          src={TREATMENT_VIDEO}
-          className="absolute inset-0 w-full h-full"
-          fallbackStyle={{ background: 'radial-gradient(ellipse at center, #4A1A8C 0%, #1A0A3D 60%, #0D0520 100%)' }}
-        />
+        <HiggsVideo src={HIGGSFIELD.videos.treatmentHero} fallbackGradient={FALLBACKS.purpleMid} className="absolute inset-0 w-full h-full" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.9) 0%, rgba(10,4,28,0.4) 100%)' }} aria-hidden />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <h1 className="font-serif font-semibold text-white text-5xl mb-4">Treatment of VTS</h1>

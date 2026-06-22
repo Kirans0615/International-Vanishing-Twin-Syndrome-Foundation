@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { ExternalLink, Scale, ChevronDown, ChevronUp } from 'lucide-react';
-import { VideoBackground } from '../../components/VideoBackground';
 import { useReveal } from '../../hooks/useInView';
-
-// HIGGSFIELD ASSET
-// Prompt: "Abstract gentle light rays in purple blue and gold filtering through soft clouds, hopeful and trustworthy, cinematic wide, slow motion drift"
-// Replace URL: https://d8j0ntlcm91z4.cloudfront.net/[ID].mp4
-const ETHICS_HERO_VIDEO: string | undefined = undefined;
+import { HiggsVideo } from '../../components/HiggsVideo';
+import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 const FRAMEWORKS = [
   { name: 'CIOMS International Ethical Guidelines for Health-Related Research Involving Humans', href: 'https://cioms.ch' },
@@ -40,11 +36,7 @@ export function Ethics() {
   return (
     <>
       <div className="relative h-[50vh] overflow-hidden rounded-b-3xl">
-        <VideoBackground
-          src={ETHICS_HERO_VIDEO}
-          className="absolute inset-0 w-full h-full"
-          fallbackStyle={{ background: 'radial-gradient(ellipse at center, #4A1A8C 0%, #1A0A3D 60%, #0D0520 100%)' }}
-        />
+        <HiggsVideo src={HIGGSFIELD.videos.ethicsHero} fallbackGradient={FALLBACKS.purpleMid} className="absolute inset-0 w-full h-full" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.85) 0%, rgba(10,4,28,0.4) 100%)' }} aria-hidden />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <h1 className="font-serif font-semibold text-white text-5xl mb-4">Our Ethics</h1>

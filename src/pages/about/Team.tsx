@@ -1,5 +1,7 @@
 import { Info } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
+import { HiggsImage } from '../../components/HiggsImage';
+import { HIGGSFIELD } from '../../assets/higgsfield';
 
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const { ref, className: rc } = useReveal();
@@ -57,6 +59,7 @@ export function Team() {
   return (
     <>
       <div className="relative h-[45vh] overflow-hidden" style={{ background: 'linear-gradient(135deg, #4A1A8C 0%, #1A0A3D 100%)' }}>
+        <HiggsImage src={HIGGSFIELD.images.teamBg} alt="" fallbackGradient="transparent" className="absolute inset-0 w-full h-full object-cover pointer-events-none" style={{ opacity: 0.06 }} />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <h1 className="font-serif font-semibold text-white text-5xl mb-4">Our Team</h1>
           <p className="text-white/70 text-lg max-w-xl leading-relaxed">Led by parents, researchers, and clinicians. All roles are volunteer.</p>

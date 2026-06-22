@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { AlertTriangle, Mail, MapPin, Phone, ExternalLink, Send } from 'lucide-react';
 import { useReveal } from '../hooks/useInView';
+import { HiggsVideo } from '../components/HiggsVideo';
+import { HIGGSFIELD } from '../assets/higgsfield';
 
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const { ref, className: rc } = useReveal();
@@ -28,12 +30,13 @@ export function Contact() {
 
   return (
     <>
-      <div
-        className="relative h-[45vh] flex flex-col items-center justify-center text-center px-6 pt-20"
-        style={{ background: 'linear-gradient(135deg, #2D1060 0%, #4A1A8C 60%, #9B2D6E 100%)' }}
-      >
-        <h1 className="font-serif font-semibold text-white text-5xl mb-4">Contact Us</h1>
-        <p className="text-white/70 text-lg max-w-xl leading-relaxed">We are here to listen, collaborate, and help connect you with the right resources.</p>
+      <div className="relative h-[45vh] overflow-hidden">
+        <HiggsVideo src={HIGGSFIELD.videos.contactHero} fallbackGradient="linear-gradient(135deg, #2D1060 0%, #4A1A8C 60%, #9B2D6E 100%)" className="absolute inset-0 w-full h-full" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.85) 0%, rgba(10,4,28,0.3) 100%)' }} aria-hidden />
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
+          <h1 className="font-serif font-semibold text-white text-5xl mb-4">Contact Us</h1>
+          <p className="text-white/70 text-lg max-w-xl leading-relaxed">We are here to listen, collaborate, and help connect you with the right resources.</p>
+        </div>
       </div>
 
       {/* PROMINENT CRISIS DISCLAIMER */}

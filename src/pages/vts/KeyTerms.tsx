@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { Search, ChevronDown, ChevronUp } from 'lucide-react';
-import { VideoBackground } from '../../components/VideoBackground';
 import { useReveal } from '../../hooks/useInView';
-
-// HIGGSFIELD ASSET
-// Prompt: "Abstract dark purple library aesthetic — soft light particles floating among deep violet tones, scholarly and warm, very subtle motion"
-// Replace URL: https://d8j0ntlcm91z4.cloudfront.net/[ID].mp4
-const KEY_TERMS_VIDEO: string | undefined = undefined;
+import { HiggsVideo } from '../../components/HiggsVideo';
+import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 type Category = 'All' | 'Clinical Terms' | 'Pregnancy & Development' | 'Genetic Terms' | 'Grief & Support';
 
@@ -51,11 +47,7 @@ export function KeyTerms() {
   return (
     <>
       <div className="relative h-[45vh] overflow-hidden rounded-b-3xl">
-        <VideoBackground
-          src={KEY_TERMS_VIDEO}
-          className="absolute inset-0 w-full h-full"
-          fallbackStyle={{ background: 'radial-gradient(ellipse at center, #2D1060 0%, #0D0520 100%)' }}
-        />
+        <HiggsVideo src={HIGGSFIELD.videos.keyTermsHero} fallbackGradient={FALLBACKS.darkNebula} className="absolute inset-0 w-full h-full" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.9) 0%, rgba(10,4,28,0.4) 100%)' }} aria-hidden />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <h1 className="font-serif font-semibold text-white text-5xl mb-4">Key Terms &amp; Definitions</h1>

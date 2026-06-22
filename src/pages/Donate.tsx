@@ -1,5 +1,9 @@
 import { Heart, ExternalLink, Shield, BookOpen, Megaphone, Users } from 'lucide-react';
 import { useReveal } from '../hooks/useInView';
+import { HiggsVideo } from '../components/HiggsVideo';
+import { ParticleField } from '../components/ParticleField';
+import { GlowOrbs } from '../components/GlowOrbs';
+import { HIGGSFIELD } from '../assets/higgsfield';
 
 const IMPACTS = [
   { Icon: BookOpen, label: 'Research', desc: 'Fund peer-reviewed VTS research, literature reviews, and scholarly collaborations advancing clinical knowledge.' },
@@ -16,13 +20,16 @@ function RevealDiv({ children, className = '' }: { children: React.ReactNode; cl
 export function Donate() {
   return (
     <>
-      <div
-        className="relative h-[50vh] flex flex-col items-center justify-center text-center px-6 pt-20"
-        style={{ background: 'linear-gradient(135deg, #9B2D6E 0%, #4A1A8C 50%, #2D1060 100%)' }}
-      >
-        <Heart size={40} color="#C2408C" className="mb-5 animate-glow-pulse" aria-hidden />
-        <h1 className="font-serif font-semibold text-white text-5xl mb-4 tracking-[-0.02em]">Donate</h1>
-        <p className="text-white/70 text-xl max-w-lg leading-relaxed">Your generosity funds the research, awareness, and support that VTS families deserve.</p>
+      <div className="relative h-[50vh] overflow-hidden">
+        <HiggsVideo src={HIGGSFIELD.videos.donateHero} fallbackGradient="linear-gradient(135deg, #9B2D6E 0%, #4A1A8C 50%, #2D1060 100%)" className="absolute inset-0 w-full h-full" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.85) 0%, rgba(10,4,28,0.3) 100%)' }} aria-hidden />
+        <ParticleField count={35} />
+        <GlowOrbs />
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
+          <Heart size={40} color="#C2408C" className="mb-5 animate-glow-pulse" aria-hidden />
+          <h1 className="font-serif font-semibold text-white text-5xl mb-4 tracking-[-0.02em]">Donate</h1>
+          <p className="text-white/70 text-xl max-w-lg leading-relaxed">Your generosity funds the research, awareness, and support that VTS families deserve.</p>
+        </div>
       </div>
 
       <section className="bg-[#FAF8FF] px-6 py-20">

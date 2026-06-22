@@ -1,5 +1,8 @@
 import { AlertTriangle, Heart, ArrowRight } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
+import { HiggsVideo } from '../../components/HiggsVideo';
+import { ParticleField } from '../../components/ParticleField';
+import { HIGGSFIELD } from '../../assets/higgsfield';
 
 const STORIES = [
   {
@@ -36,12 +39,14 @@ function RevealDiv({ children, className = '' }: { children: React.ReactNode; cl
 export function Stories() {
   return (
     <>
-      <div
-        className="relative h-[40vh] flex flex-col items-center justify-center text-center px-6 pt-20"
-        style={{ background: 'linear-gradient(135deg, #2D1060 0%, #9B2D6E 60%, #4A1A8C 100%)' }}
-      >
-        <h1 className="font-serif font-semibold text-white text-5xl mb-4">Stories of Loss</h1>
-        <p className="text-white/70 text-lg max-w-xl">Personal narratives shared with permission, honoring diverse experiences.</p>
+      <div className="relative h-[40vh] overflow-hidden">
+        <HiggsVideo src={HIGGSFIELD.videos.storiesHero} fallbackGradient="linear-gradient(135deg, #2D1060 0%, #9B2D6E 60%, #4A1A8C 100%)" className="absolute inset-0 w-full h-full" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.85) 0%, rgba(10,4,28,0.3) 100%)' }} aria-hidden />
+        <ParticleField count={25} />
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
+          <h1 className="font-serif font-semibold text-white text-5xl mb-4">Stories of Loss</h1>
+          <p className="text-white/70 text-lg max-w-xl">Personal narratives shared with permission, honoring diverse experiences.</p>
+        </div>
       </div>
 
       {/* SENSITIVE CONTENT NOTICE */}

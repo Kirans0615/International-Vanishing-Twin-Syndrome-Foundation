@@ -1,12 +1,8 @@
 import { Link } from 'react-router-dom';
 import { FlaskConical, BookOpen, HeartHandshake, Scale, Lightbulb, ChevronRight } from 'lucide-react';
-import { VideoBackground } from '../../components/VideoBackground';
 import { useReveal } from '../../hooks/useInView';
-
-// HIGGSFIELD ASSET
-// Prompt: "A field of soft glowing purple flowers in gentle wind, twilight, bokeh background, warm violet and magenta tones, cinematic, slow motion, emotional and serene"
-// Replace URL: https://d8j0ntlcm91z4.cloudfront.net/[ID].mp4
-const ABOUT_HERO_VIDEO: string | undefined = undefined;
+import { HiggsVideo } from '../../components/HiggsVideo';
+import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 const SUB_PAGES = [
   { label: 'Overview', href: '/about' },
@@ -33,11 +29,7 @@ export function About() {
   return (
     <>
       <div className="relative h-[60vh] overflow-hidden rounded-b-3xl">
-        <VideoBackground
-          src={ABOUT_HERO_VIDEO}
-          className="absolute inset-0 w-full h-full"
-          fallbackStyle={{ background: 'radial-gradient(ellipse at center, #4A1A8C 0%, #1A0A3D 60%, #0D0520 100%)' }}
-        />
+        <HiggsVideo src={HIGGSFIELD.videos.aboutHero} fallbackGradient={FALLBACKS.heroDark} className="absolute inset-0 w-full h-full" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.85) 0%, rgba(10,4,28,0.4) 100%)' }} aria-hidden />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <h1 className="font-serif font-semibold text-white text-5xl md:text-6xl mb-4 tracking-[-0.02em]">About the IVTSF</h1>

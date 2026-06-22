@@ -1,16 +1,7 @@
 import { ExternalLink, Wind } from 'lucide-react';
-import { VideoBackground } from '../components/VideoBackground';
 import { useReveal } from '../hooks/useInView';
-
-// HIGGSFIELD ASSET
-// Prompt: "Elegant metal wind chime hanging in a soft breeze, purple and silver tones, slow cinematic motion, memorial feeling, bokeh background, seamless loop"
-// Replace URL: https://d8j0ntlcm91z4.cloudfront.net/[ID].mp4
-const SHOP_HERO_VIDEO: string | undefined = undefined;
-
-// HIGGSFIELD ASSET
-// Prompt: "Close-up of memorial wind chime with soft engraved text, gentle afternoon light, purple-silver color palette, product beauty shot"
-// Replace URL: https://d8j0ntlcm91z4.cloudfront.net/[ID].mp4
-const CHIME_PRODUCT_VIDEO: string | undefined = undefined;
+import { HiggsVideo } from '../components/HiggsVideo';
+import { HIGGSFIELD, FALLBACKS } from '../assets/higgsfield';
 
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const { ref, className: rc } = useReveal();
@@ -21,11 +12,7 @@ export function Shop() {
   return (
     <>
       <div className="relative h-[50vh] overflow-hidden rounded-b-3xl">
-        <VideoBackground
-          src={SHOP_HERO_VIDEO}
-          className="absolute inset-0 w-full h-full"
-          fallbackStyle={{ background: 'radial-gradient(ellipse at center, #4A1A8C 0%, #2D1060 60%, #0D0520 100%)' }}
-        />
+        <HiggsVideo src={HIGGSFIELD.videos.shopHero} fallbackGradient={FALLBACKS.purpleMid} className="absolute inset-0 w-full h-full" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.9) 0%, rgba(10,4,28,0.35) 100%)' }} aria-hidden />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <Wind size={36} color="#4DB8E8" className="mb-4 animate-scroll-bounce" aria-hidden />
@@ -39,11 +26,7 @@ export function Shop() {
           <div className="grid md:grid-cols-2 gap-10 items-center mb-20">
             <RevealDiv className="reveal-left">
               <div className="relative rounded-2xl overflow-hidden aspect-square" style={{ background: '#1A0A3D' }}>
-                <VideoBackground
-                  src={CHIME_PRODUCT_VIDEO}
-                  className="absolute inset-0 w-full h-full"
-                  fallbackStyle={{ background: 'linear-gradient(135deg, #4A1A8C 0%, #1A0A3D 100%)' }}
-                />
+                <HiggsVideo src={HIGGSFIELD.videos.homeShopChime} fallbackGradient="linear-gradient(135deg, #4A1A8C 0%, #1A0A3D 100%)" className="absolute inset-0 w-full h-full" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Wind size={64} color="rgba(77,184,232,0.4)" aria-hidden />
                 </div>
