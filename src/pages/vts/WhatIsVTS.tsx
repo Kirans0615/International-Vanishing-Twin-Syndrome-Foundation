@@ -6,13 +6,6 @@ import { ParticleField } from '../../components/ParticleField';
 import { VtsSubNav } from '../../components/VtsSubNav';
 import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
-const SUB_NAV = [
-  { label: 'Overview', href: '/what-is-vts' },
-  { label: 'Diagnosing VTS', href: '/what-is-vts/diagnosing' },
-  { label: 'Treatment', href: '/what-is-vts/treatment' },
-  { label: 'Key Terms', href: '/what-is-vts/key-terms' },
-];
-
 const OUTCOMES = [
   { num: '1', title: 'Loss Before 10 Weeks', desc: 'One embryo is resorbed, leaving little or no trace. This is the most common scenario and often goes undetected without early ultrasound.', color: '#6B2DB5' },
   { num: '2', title: 'Loss Between 10–20 Weeks', desc: 'The fetus may be compressed into the placenta (fetus papyraceous). Physical evidence may be present at delivery.', color: '#4DB8E8' },
