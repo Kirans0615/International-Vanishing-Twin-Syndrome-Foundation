@@ -3,7 +3,6 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollProgressBar } from './components/ScrollProgressBar';
 import { ScrollToTop } from './components/ScrollToTop';
-import { CustomCursor } from './components/CustomCursor';
 import { ScrollButterfly } from './components/ScrollButterfly';
 import { Home } from './pages/Home';
 import { About } from './pages/about/About';
@@ -30,7 +29,6 @@ export default function App() {
     <div className="min-h-screen flex flex-col">
       <ScrollProgressBar />
       <ScrollToTop />
-      <CustomCursor />
       <ScrollButterfly />
       <Navbar />
       <main className="flex-1">
