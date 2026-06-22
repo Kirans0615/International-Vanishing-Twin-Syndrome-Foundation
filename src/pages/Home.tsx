@@ -206,13 +206,10 @@ export function Home() {
               </div>
             </RevealDiv>
             <RevealDiv className="reveal-delay-2">
-              <div className="card-hover rounded-2xl min-h-52 relative overflow-hidden">
-                <HiggsVideo src={HIGGSFIELD.videos.homeOrbCard} fallbackGradient={FALLBACKS.darkNebula} className="absolute inset-0 w-full h-full" opacity={0.4} />
-                <div className="relative z-10 p-7 h-full flex flex-col justify-end min-h-52">
-                  <HeartHandshake size={28} color="#4DB8E8" className="mb-4" aria-hidden />
-                  <h3 className="font-serif font-semibold text-white text-xl mb-3">Family &amp;<br />Provider Support</h3>
-                  <p className="text-white/60 text-sm leading-relaxed">Information on support resources for those affected by VTS.</p>
-                </div>
+              <div className="card-hover rounded-2xl p-7 min-h-52 border-l-4 border-[#4DB8E8] h-full" style={{ background: '#F0EBF8' }}>
+                <HeartHandshake size={28} color="#4DB8E8" className="mb-4" aria-hidden />
+                <h3 className="font-serif font-semibold text-[#4A1A8C] text-xl mb-3">Family &amp;<br />Provider Support</h3>
+                <p className="text-[#1A1020]/65 text-sm leading-relaxed">Information on support resources for those affected by VTS.</p>
               </div>
             </RevealDiv>
           </div>
