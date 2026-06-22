@@ -2,6 +2,7 @@ import { Info } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsImage } from '../../components/HiggsImage';
 import { HIGGSFIELD } from '../../assets/higgsfield';
+import { AboutSubNav } from '../../components/AboutSubNav';
 
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const { ref, className: rc } = useReveal();
@@ -65,6 +66,8 @@ export function Team() {
           <p className="text-white/70 text-lg max-w-xl leading-relaxed">Led by parents, researchers, and clinicians. All roles are volunteer.</p>
         </div>
       </div>
+
+      <AboutSubNav />
 
       <section className="bg-[#FAF8FF] px-6 py-20">
         <div className="max-w-5xl mx-auto">

@@ -3,6 +3,7 @@ import { ExternalLink, Scale, ChevronDown, ChevronUp } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsVideo } from '../../components/HiggsVideo';
 import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
+import { AboutSubNav } from '../../components/AboutSubNav';
 
 const FRAMEWORKS = [
   { name: 'CIOMS International Ethical Guidelines for Health-Related Research Involving Humans', href: 'https://cioms.ch' },
@@ -43,6 +44,8 @@ export function Ethics() {
           <p className="text-white/70 text-lg max-w-2xl leading-relaxed">Guided by internationally recognized frameworks for human-centered practice.</p>
         </div>
       </div>
+
+      <AboutSubNav />
 
       <section className="bg-[#FAF8FF] px-6 py-16">
         <div className="max-w-3xl mx-auto">

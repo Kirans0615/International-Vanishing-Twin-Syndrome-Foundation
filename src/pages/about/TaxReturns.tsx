@@ -1,6 +1,7 @@
 import { FileText, ShieldCheck } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { ParticleField } from '../../components/ParticleField';
+import { AboutSubNav } from '../../components/AboutSubNav';
 
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const { ref, className: rc } = useReveal();
@@ -18,6 +19,8 @@ export function TaxReturns() {
         <h1 className="relative z-10 font-serif font-semibold text-white text-5xl mb-4">Financial Accountability</h1>
         <p className="relative z-10 text-white/70 text-lg">Transparency is foundational to our mission.</p>
       </div>
+
+      <AboutSubNav />
 
       <section className="bg-[#FAF8FF] px-6 py-20">
         <div className="max-w-3xl mx-auto">

@@ -56,6 +56,7 @@ export function Navbar() {
   useEffect(() => {
     setMobileOpen(false);
     setOpenDropdown(null);
+    setMobileExpanded(null);
   }, [location.pathname]);
 
   useEffect(() => {
