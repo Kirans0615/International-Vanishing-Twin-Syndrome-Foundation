@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import { ScrollProgressBar } from './components/ScrollProgressBar';
 import { ScrollToTop } from './components/ScrollToTop';
 import { CustomCursor } from './components/CustomCursor';
+import { ScrollButterfly } from './components/ScrollButterfly';
 import { Home } from './pages/Home';
 import { About } from './pages/about/About';
 import { Team } from './pages/about/Team';
@@ -30,6 +31,7 @@ export default function App() {
       <ScrollProgressBar />
       <ScrollToTop />
       <CustomCursor />
+      <ScrollButterfly />
       <Navbar />
       <main className="flex-1">
         <Routes>

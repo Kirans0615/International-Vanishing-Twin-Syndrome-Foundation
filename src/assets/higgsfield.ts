@@ -32,6 +32,13 @@ export const HIGGSFIELD = {
   },
 }
 
+export const BUTTERFLY_VIDEOS = {
+  idle:     `${CDN}/hf_20260622_040455_6d27e607-a069-45fc-8aad-d07e039e8d65.mp4`,
+  opening:  `${CDN}/hf_20260622_040459_911ec49a-ee6d-489f-acab-91f1bd113b8c.mp4`,
+  fastFlap: `${CDN}/hf_20260622_040503_b65e23ea-7f93-4ef9-8b4a-67b766876e32.mp4`,
+  flyAway:  `${CDN}/hf_20260622_040517_397a0fb1-a84c-4a6d-9bb0-a6ca6d14f8c2.mp4`,
+}
+
 export const FALLBACKS = {
   heroDark:    'radial-gradient(ellipse at 60% 40%, #2D1060 0%, #1A0A3D 55%, #0D0520 100%)',
   purpleMid:   'radial-gradient(ellipse at center, #4A1A8C 0%, #1A0A3D 70%, #0D0520 100%)',
