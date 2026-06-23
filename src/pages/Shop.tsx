@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { ExternalLink, Wind, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useReveal } from '../hooks/useInView';
 import { HiggsVideo } from '../components/HiggsVideo';
@@ -185,13 +186,13 @@ export function Shop() {
               <p className="text-white/55 text-base leading-relaxed mb-6 max-w-lg mx-auto">
                 If you would like to support IVTSF directly, you can make a charitable donation through our Givebutter page.
               </p>
-              <a
-                href="/donate"
+              <Link
+                to="/donate"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold transition-all hover:brightness-110"
                 style={{ background: 'linear-gradient(135deg, #C2408C, #6B2DB5)' }}
               >
                 Donate to IVTSF
-              </a>
+              </Link>
             </div>
           </RevealDiv>
         </div>
