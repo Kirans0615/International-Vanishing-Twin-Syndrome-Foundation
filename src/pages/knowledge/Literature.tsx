@@ -1,7 +1,8 @@
 import { ExternalLink } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsVideo } from '../../components/HiggsVideo';
-import { KnowledgeSubNav } from '../../components/KnowledgeSubNav';
+import { KnowledgeHubSubNav } from '../../components/KnowledgeHubSubNav';
+import { Breadcrumb } from '../../components/Breadcrumb';
 import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
 
 const SCHOLARLY = [
@@ -40,7 +41,8 @@ export function Literature() {
         </div>
       </div>
 
-      <KnowledgeSubNav />
+      <KnowledgeHubSubNav />
+      <Breadcrumb />
 
       <section className="bg-[#FAF8FF] px-6 py-20">
         <div className="max-w-5xl mx-auto">

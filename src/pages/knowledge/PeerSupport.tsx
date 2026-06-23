@@ -1,7 +1,8 @@
 import { AlertTriangle, Heart, Users, ExternalLink, Phone } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsVideo } from '../../components/HiggsVideo';
-import { KnowledgeSubNav } from '../../components/KnowledgeSubNav';
+import { KnowledgeHubSubNav } from '../../components/KnowledgeHubSubNav';
+import { Breadcrumb } from '../../components/Breadcrumb';
 import { HIGGSFIELD } from '../../assets/higgsfield';
 
 const RESOURCES = [
@@ -34,7 +35,8 @@ export function PeerSupport() {
         </div>
       </div>
 
-      <KnowledgeSubNav />
+      <KnowledgeHubSubNav />
+      <Breadcrumb />
 
       {/* PROMINENT CRISIS DISCLAIMER */}
       <section className="px-6 py-6">

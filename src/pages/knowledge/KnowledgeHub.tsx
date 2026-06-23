@@ -1,29 +1,61 @@
-import { Link } from 'react-router-dom';
-import { BookOpen, Users, Heart, MessageSquare, ArrowRight } from 'lucide-react';
-import { useReveal } from '../../hooks/useInView';
-import { HiggsVideo } from '../../components/HiggsVideo';
-import { ParticleField } from '../../components/ParticleField';
-import { GlowOrbs } from '../../components/GlowOrbs';
-import { KnowledgeSubNav } from '../../components/KnowledgeSubNav';
-import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield';
+import { Link } from 'react-router-dom'
+import { BookOpen, Users, Heart, MessageSquare, ArrowRight } from 'lucide-react'
+import { useReveal } from '../../hooks/useInView'
+import { HiggsVideo } from '../../components/HiggsVideo'
+import { ParticleField } from '../../components/ParticleField'
+import { GlowOrbs } from '../../components/GlowOrbs'
+import { KnowledgeHubSubNav } from '../../components/KnowledgeHubSubNav'
+import { HIGGSFIELD, FALLBACKS } from '../../assets/higgsfield'
 
 const SUB_NAV = [
   { label: 'Literature Repository', href: '/knowledge-hub/literature' },
   { label: 'Partners & Resources', href: '/knowledge-hub/partners' },
   { label: 'Peer Support', href: '/knowledge-hub/peer-support' },
-  { label: 'Stories of Loss', href: '/knowledge-hub/stories' },
-];
+  { label: 'Stories of Multiple Loss', href: '/knowledge-hub/stories' },
+]
 
 const SECTIONS = [
-  { Icon: BookOpen, color: '#6B2DB5', bg: 'linear-gradient(135deg, #4A1A8C, #2D1060)', title: 'Literature Repository', desc: 'Peer-reviewed publications and ongoing scholarly projects advancing VTS research.', href: '/knowledge-hub/literature' },
-  { Icon: Users, color: '#4DB8E8', bg: 'linear-gradient(135deg, #1A0A3D, #4A1A8C)', title: 'Partners & Resources', desc: 'External organizations supporting VTS families, research, and clinical practice.', href: '/knowledge-hub/partners' },
-  { Icon: Heart, color: '#C2408C', bg: 'linear-gradient(135deg, #2D1060, #9B2D6E)', title: 'Peer Support', desc: 'Community resources and mutual aid networks for those affected by VTS.', href: '/knowledge-hub/peer-support' },
-  { Icon: MessageSquare, color: '#87CEEB', bg: 'linear-gradient(135deg, #1A0A3D, #6B2DB5)', title: 'Stories of Loss', desc: 'Personal narratives shared with permission, honoring diverse experiences of loss.', href: '/knowledge-hub/stories' },
-];
+  {
+    Icon: BookOpen,
+    color: '#6B2DB5',
+    bg: 'linear-gradient(135deg, #4A1A8C, #2D1060)',
+    title: 'Literature Repository',
+    desc: 'Peer-reviewed publications and ongoing scholarly projects advancing VTS research.',
+    href: '/knowledge-hub/literature',
+    pills: [],
+  },
+  {
+    Icon: Users,
+    color: '#4DB8E8',
+    bg: 'linear-gradient(135deg, #1A0A3D, #4A1A8C)',
+    title: 'Partners & Resources',
+    desc: 'External organizations supporting VTS families, research, and clinical practice.',
+    href: '/knowledge-hub/partners',
+    pills: ['For Families', 'Memorialization', 'For Providers'],
+  },
+  {
+    Icon: Heart,
+    color: '#C2408C',
+    bg: 'linear-gradient(135deg, #2D1060, #9B2D6E)',
+    title: 'Peer Support',
+    desc: 'Community resources and mutual aid networks for those affected by VTS.',
+    href: '/knowledge-hub/peer-support',
+    pills: [],
+  },
+  {
+    Icon: MessageSquare,
+    color: '#87CEEB',
+    bg: 'linear-gradient(135deg, #1A0A3D, #6B2DB5)',
+    title: 'Stories of Multiple Loss',
+    desc: 'Personal narratives shared with permission, honoring diverse experiences of loss.',
+    href: '/knowledge-hub/stories',
+    pills: ['Share Your Story'],
+  },
+]
 
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  const { ref, className: rc } = useReveal();
-  return <div ref={ref} className={`${rc} ${className}`}>{children}</div>;
+  const { ref, className: rc } = useReveal()
+  return <div ref={ref} className={`${rc} ${className}`}>{children}</div>
 }
 
 export function KnowledgeHub() {
@@ -51,7 +83,7 @@ export function KnowledgeHub() {
         </div>
       </div>
 
-      <KnowledgeSubNav />
+      <KnowledgeHubSubNav />
 
       <section className="bg-[#FAF8FF] px-6 py-20">
         <div className="max-w-7xl mx-auto">
@@ -62,7 +94,7 @@ export function KnowledgeHub() {
           </RevealDiv>
 
           <div className="grid gap-6 sm:grid-cols-2">
-            {SECTIONS.map(({ Icon, color, bg, title, desc, href }, i) => (
+            {SECTIONS.map(({ Icon, color, bg, title, desc, href, pills }, i) => (
               <RevealDiv key={title} className={`reveal-delay-${(i % 4) + 1}`}>
                 <Link to={href} className="block h-full">
                   <div className="card-hover rounded-2xl min-h-64 relative overflow-hidden h-full">
@@ -72,7 +104,20 @@ export function KnowledgeHub() {
                       <Icon size={32} color={color} aria-hidden />
                       <div>
                         <h3 className="font-serif font-semibold text-white text-2xl mb-3">{title}</h3>
-                        <p className="text-white/65 text-sm leading-relaxed mb-4">{desc}</p>
+                        <p className="text-white/65 text-sm leading-relaxed mb-3">{desc}</p>
+                        {pills.length > 0 && (
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {pills.map(p => (
+                              <span
+                                key={p}
+                                className="text-xs rounded-full px-3 py-1"
+                                style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.75)' }}
+                              >
+                                {p}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                         <span className="inline-flex items-center gap-2 text-sm font-medium" style={{ color }}>
                           Explore <ArrowRight size={14} />
                         </span>
@@ -86,5 +131,5 @@ export function KnowledgeHub() {
         </div>
       </section>
     </>
-  );
+  )
 }

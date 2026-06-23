@@ -16,9 +16,16 @@ import { Treatment } from './pages/vts/Treatment';
 import { KeyTerms } from './pages/vts/KeyTerms';
 import { KnowledgeHub } from './pages/knowledge/KnowledgeHub';
 import { Literature } from './pages/knowledge/Literature';
-import { Partners } from './pages/knowledge/Partners';
+import { PartnersResources } from './pages/knowledge/PartnersResources';
+import { ForFamilies } from './pages/knowledge/partners/ForFamilies';
+import { PrenatalChecklist } from './pages/knowledge/partners/PrenatalChecklist';
+import { EducationPage } from './pages/knowledge/partners/EducationPage';
+import { Memorialization } from './pages/knowledge/partners/Memorialization';
+import { ForProviders } from './pages/knowledge/partners/ForProviders';
+import { PrenatalProviderReference } from './pages/knowledge/partners/PrenatalProviderReference';
 import { PeerSupport } from './pages/knowledge/PeerSupport';
 import { Stories } from './pages/knowledge/Stories';
+import { ShareYourStory } from './pages/knowledge/ShareYourStory';
 import { Shop } from './pages/Shop';
 import { Donate } from './pages/Donate';
 import { Volunteer } from './pages/Volunteer';
@@ -45,9 +52,16 @@ export default function App() {
           <Route path="/what-is-vts/key-terms" element={<KeyTerms />} />
           <Route path="/knowledge-hub" element={<KnowledgeHub />} />
           <Route path="/knowledge-hub/literature" element={<Literature />} />
-          <Route path="/knowledge-hub/partners" element={<Partners />} />
+          <Route path="/knowledge-hub/partners" element={<PartnersResources />} />
+          <Route path="/knowledge-hub/partners/families" element={<ForFamilies />} />
+          <Route path="/knowledge-hub/partners/families/prenatal-checklist" element={<PrenatalChecklist />} />
+          <Route path="/knowledge-hub/partners/families/education" element={<EducationPage />} />
+          <Route path="/knowledge-hub/partners/memorialization" element={<Memorialization />} />
+          <Route path="/knowledge-hub/partners/providers" element={<ForProviders />} />
+          <Route path="/knowledge-hub/partners/providers/prenatal-reference" element={<PrenatalProviderReference />} />
           <Route path="/knowledge-hub/peer-support" element={<PeerSupport />} />
           <Route path="/knowledge-hub/stories" element={<Stories />} />
+          <Route path="/knowledge-hub/stories/share" element={<ShareYourStory />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/volunteer" element={<Volunteer />} />

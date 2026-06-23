@@ -1,9 +1,11 @@
-import { AlertTriangle, Heart, ArrowRight } from 'lucide-react';
-import { useReveal } from '../../hooks/useInView';
-import { HiggsVideo } from '../../components/HiggsVideo';
-import { ParticleField } from '../../components/ParticleField';
-import { KnowledgeSubNav } from '../../components/KnowledgeSubNav';
-import { HIGGSFIELD } from '../../assets/higgsfield';
+import { Link } from 'react-router-dom'
+import { AlertTriangle, Heart, ArrowRight } from 'lucide-react'
+import { useReveal } from '../../hooks/useInView'
+import { HiggsVideo } from '../../components/HiggsVideo'
+import { ParticleField } from '../../components/ParticleField'
+import { KnowledgeHubSubNav } from '../../components/KnowledgeHubSubNav'
+import { Breadcrumb } from '../../components/Breadcrumb'
+import { HIGGSFIELD } from '../../assets/higgsfield'
 
 const STORIES = [
   {
@@ -30,11 +32,11 @@ const STORIES = [
     context: 'Second trimester loss',
     color: '#8B3FD4',
   },
-];
+]
 
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  const { ref, className: rc } = useReveal();
-  return <div ref={ref} className={`${rc} ${className}`}>{children}</div>;
+  const { ref, className: rc } = useReveal()
+  return <div ref={ref} className={`${rc} ${className}`}>{children}</div>
 }
 
 export function Stories() {
@@ -45,12 +47,19 @@ export function Stories() {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.85) 0%, rgba(10,4,28,0.3) 100%)' }} aria-hidden />
         <ParticleField count={25} />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
-          <h1 className="font-serif font-semibold text-white text-5xl mb-4">Stories of Loss</h1>
-          <p className="text-white/70 text-lg max-w-xl">Personal narratives shared with permission, honoring diverse experiences.</p>
+          <h1 className="font-serif font-semibold text-white text-5xl mb-4">Stories of Multiple Loss</h1>
+          <p className="text-white/70 text-lg max-w-xl mb-5">Personal narratives shared with permission, honoring diverse experiences.</p>
+          <Link
+            to="/knowledge-hub/stories/share"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-semibold border border-white/30 hover:border-white/60 transition-all"
+          >
+            Share Your Story <ArrowRight size={13} />
+          </Link>
         </div>
       </div>
 
-      <KnowledgeSubNav />
+      <KnowledgeHubSubNav />
+      <Breadcrumb />
 
       {/* SENSITIVE CONTENT NOTICE */}
       <section className="px-6 py-6">
@@ -96,6 +105,7 @@ export function Stories() {
             ))}
           </div>
 
+          {/* Share Your Story section */}
           <RevealDiv className="mb-10">
             <div className="rounded-2xl p-8" style={{ background: '#1A0A3D' }}>
               <Heart size={24} color="#C2408C" className="mb-4" aria-hidden />
@@ -103,13 +113,33 @@ export function Stories() {
               <p className="text-white/55 text-base leading-relaxed mb-6">
                 If you would like to share your experience with VTS — as a parent, surviving twin, provider, or loved one — we would be honored to receive it. All submissions are reviewed with care. You will never be asked to share more than you are comfortable with, and your privacy will always be protected.
               </p>
-              <a
-                href="mailto:contact@vanishingtwinsyndrome.org?subject=Story Submission"
+              <Link
+                to="/knowledge-hub/stories/share"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white text-sm font-semibold transition-all hover:brightness-110"
                 style={{ background: 'linear-gradient(135deg, #6B2DB5, #C2408C)' }}
               >
                 Submit Your Story <ArrowRight size={14} />
-              </a>
+              </Link>
+            </div>
+          </RevealDiv>
+
+          {/* Your Story Matters CTA band */}
+          <RevealDiv className="mb-10">
+            <div
+              className="rounded-2xl p-12 text-center"
+              style={{ background: 'linear-gradient(to right, #4A1A8C, #9B2D6E)' }}
+            >
+              <h2 className="font-serif font-semibold text-white text-4xl mb-4">Your Story Matters</h2>
+              <p className="mb-8 max-w-lg mx-auto" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.7 }}>
+                Sharing your experience can help others feel less alone — and helps IVTSF understand the diverse ways VTS affects families.
+              </p>
+              <Link
+                to="/knowledge-hub/stories/share"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm transition-all hover:bg-[#F0EBF8]"
+                style={{ background: 'white', color: '#4A1A8C' }}
+              >
+                Share Your Story <ArrowRight size={14} />
+              </Link>
             </div>
           </RevealDiv>
 
@@ -123,5 +153,5 @@ export function Stories() {
         </div>
       </section>
     </>
-  );
+  )
 }
