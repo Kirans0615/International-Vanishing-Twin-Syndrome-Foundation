@@ -1,9 +1,19 @@
-import { AlertTriangle, Heart, Users, ExternalLink, Phone } from 'lucide-react';
+import { AlertTriangle, Heart, Users, ExternalLink, Phone, Download, CheckCircle, BookOpen } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsVideo } from '../../components/HiggsVideo';
 import { KnowledgeHubSubNav } from '../../components/KnowledgeHubSubNav';
 import { Breadcrumb } from '../../components/Breadcrumb';
 import { HIGGSFIELD } from '../../assets/higgsfield';
+
+const PAPER_PDF = 'https://footprintsbabyloss.org/wp-content/uploads/2025/09/Position-paper-The-Role-of-Peer-Support-in-Multiple-Pregnancy-Complications-and-Loss-1.pdf'
+const PAPER_PAGE = 'https://footprintsbabyloss.org/resources/peer-support-position-paper/'
+
+const PAPER_HIGHLIGHTS = [
+  'The emotional and psychological needs of families facing VTS and other complications',
+  'The role of lived experience in supporting bereaved parents',
+  'The impact of peer support on resilience, coping, and well-being',
+  'Recommendations for healthcare providers on guiding parents toward reliable peer support',
+]
 
 const RESOURCES = [
   { name: 'Postpartum Support International', desc: 'Helpline and resources for perinatal mental health, including grief after pregnancy loss.', href: 'https://www.postpartum.net', phone: '1-800-944-4773' },
@@ -27,8 +37,13 @@ function RevealDiv({ children, className = '' }: { children: React.ReactNode; cl
 export function PeerSupport() {
   return (
     <>
-      <div className="relative h-[40vh] overflow-hidden">
+      <div className="relative h-[48vh] overflow-hidden">
         <HiggsVideo src={HIGGSFIELD.videos.peerSupportHero} fallbackGradient="linear-gradient(135deg, #9B2D6E 0%, #4A1A8C 60%, #2D1060 100%)" className="absolute inset-0 w-full h-full" />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.9) 0%, rgba(10,4,28,0.35) 100%)' }}
+          aria-hidden
+        />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <h1 className="font-serif font-semibold text-white text-5xl mb-4">Peer Support</h1>
           <p className="text-white/70 text-lg max-w-xl">Community resources and mutual aid for those affected by vanishing twin syndrome.</p>
@@ -74,7 +89,101 @@ export function PeerSupport() {
 
       <section className="bg-[#FAF8FF] px-6 pt-8 pb-20">
         <div className="max-w-5xl mx-auto">
-          <RevealDiv className="mb-12">
+          {/* ── Intro ── */}
+          <RevealDiv className="mb-10">
+            <h2 className="font-serif font-semibold text-[#1A1020] text-3xl md:text-4xl mb-5">
+              Evidence-Based Peer Support in Multiple Pregnancy Loss
+            </h2>
+            <div className="flex flex-col gap-4 text-[#1A1020]/65 text-base leading-relaxed">
+              <p>
+                Families experiencing VTS, TTTS, TAPS, sFGR, and other multiple-pregnancy complications often navigate profound grief, uncertainty, and complex emotional experiences that are not widely understood outside of lived experience. Peer support networks — especially those designed for multiple-birth loss — can provide emotional validation, practical insight, and community connection.
+              </p>
+              <p>
+                The IVTSF recognizes peer support as a valuable complement to medical care and counseling, and we stand with global partner organizations to ensure families have access to safe, science-grounded, and compassionate community support.
+              </p>
+            </div>
+          </RevealDiv>
+
+          {/* ── Position Paper featured card ── */}
+          <RevealDiv className="mb-16">
+            <p className="text-sm font-semibold text-[#1A1020]/50 mb-4 uppercase tracking-widest" style={{ fontFamily: 'DM Mono, monospace' }}>
+              We proudly share this recommended resource from our international partners:
+            </p>
+            <div
+              className="rounded-3xl overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, #1A0A3D 0%, #2D1060 60%, #1A0855 100%)',
+                border: '1px solid rgba(139,63,212,0.25)',
+                boxShadow: '0 8px 48px rgba(74,26,140,0.25)',
+              }}
+            >
+              {/* Header bar */}
+              <div
+                className="flex items-center gap-3 px-8 py-5"
+                style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'rgba(194,64,140,0.2)' }}
+                >
+                  <BookOpen size={20} color="#C2408C" aria-hidden />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#C2408C', fontFamily: 'DM Mono, monospace' }}>
+                    Position Paper · Footprints Baby Loss &amp; TAPS Support Foundation (2024/2025)
+                  </p>
+                  <h3 className="font-serif font-semibold text-white text-xl leading-snug">
+                    The Role of Peer Support in Multiple Pregnancy Complications and Loss
+                  </h3>
+                </div>
+              </div>
+
+              <div className="px-8 pt-6 pb-8">
+                <p className="text-white/55 text-sm leading-relaxed mb-6">
+                  This evidence-based paper highlights:
+                </p>
+                <ul className="flex flex-col gap-3 mb-8">
+                  {PAPER_HIGHLIGHTS.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle size={14} color="#C2408C" className="flex-shrink-0 mt-0.5" aria-hidden />
+                      <span className="text-sm text-white/65 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div
+                  className="flex flex-wrap gap-3 pt-6"
+                  style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+                >
+                  <a
+                    href={PAPER_PDF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold text-sm transition-all hover:brightness-110 active:scale-95"
+                    style={{ background: 'linear-gradient(135deg, #6B2DB5, #C2408C)' }}
+                  >
+                    <Download size={15} />
+                    Download Paper
+                  </a>
+                  <a
+                    href={PAPER_PAGE}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm transition-all hover:brightness-125"
+                    style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.75)', border: '1px solid rgba(255,255,255,0.15)' }}
+                  >
+                    <ExternalLink size={15} />
+                    View at Footprints / Become a Supporter
+                  </a>
+                </div>
+              </div>
+            </div>
+          </RevealDiv>
+
+          {/* ── separator ── */}
+          <div className="mb-14" style={{ borderTop: '1px solid rgba(107,45,181,0.1)' }} />
+
+          <RevealDiv className="mb-4">
             <p className="text-[#1A1020]/65 text-lg leading-relaxed max-w-2xl">
               Grief after vanishing twin syndrome is real and valid, regardless of when the loss occurred or how it is medically classified. IVTSF is committed to connecting affected individuals and families with compassionate, evidence-informed peer support.
             </p>
