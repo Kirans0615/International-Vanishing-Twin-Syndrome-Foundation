@@ -1,11 +1,34 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FileText, BookOpen, Info, ArrowRight } from 'lucide-react'
+import { FileText, BookOpen, Info, ArrowRight, Download, ExternalLink, GraduationCap, CheckCircle, Users } from 'lucide-react'
 import { useReveal } from '../../../hooks/useInView'
 import { HiggsVideo } from '../../../components/HiggsVideo'
 import { KnowledgeHubSubNav } from '../../../components/KnowledgeHubSubNav'
 import { Breadcrumb } from '../../../components/Breadcrumb'
 import { HIGGSFIELD, FALLBACKS } from '../../../assets/higgsfield'
+
+const DRIVE_VIEW = 'https://drive.google.com/file/d/1LtYHG74MpuYGmxT2FIwR9lSRY7BgGiL-/view'
+const DRIVE_DOWNLOAD = 'https://drive.google.com/uc?export=download&id=1LtYHG74MpuYGmxT2FIwR9lSRY7BgGiL-'
+
+const TOPICS = [
+  'Understanding the unique experiences of children born after the loss of a co-multiple',
+  'Identity development and family narratives following multiple loss',
+  'Recognizing how loss may influence classroom experiences and social interactions',
+  'Using inclusive, family-centered language',
+  'Adapting family-history, family-tree, and sibling-related assignments',
+  'Partnering effectively with parents and caregivers',
+  'Knowing when additional counselling or emotional support may be beneficial',
+  'Strengths-based approaches that recognize resilience, empathy, and belonging',
+]
+
+const WHO = [
+  'Teachers and classroom educators',
+  'School counsellors and psychologists',
+  'Administrators and student support teams',
+  'Early childhood educators',
+  'Special education professionals',
+  'Any professional supporting children with a history of multiple loss',
+]
 
 const TABS = ['All', 'For Patients', 'For Families', 'General Public'] as const
 type Tab = (typeof TABS)[number]
@@ -95,14 +118,134 @@ export function EducationPage() {
 
       <section className="bg-[#FAF8FF] px-6 py-20">
         <div className="max-w-5xl mx-auto">
-          <RevealDiv className="mb-10">
+
+          <RevealDiv className="mb-14">
             <p className="text-[#1A1020]/65 text-lg leading-relaxed">
               The IVTSF develops and curates educational materials to improve understanding of VTS and multifetal pregnancy. Resources are designed to be accessible, accurate, and sensitive to diverse family experiences worldwide.
             </p>
           </RevealDiv>
 
+          {/* ── FEATURED: School After Loss ── */}
+          <RevealDiv className="mb-16">
+            <div
+              className="rounded-3xl overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, #1A0A3D 0%, #2D1060 60%, #1A0855 100%)',
+                border: '1px solid rgba(139,63,212,0.25)',
+                boxShadow: '0 8px 48px rgba(74,26,140,0.25)',
+              }}
+            >
+              {/* Header bar */}
+              <div
+                className="flex items-center gap-3 px-8 py-5"
+                style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'rgba(194,64,140,0.2)' }}
+                >
+                  <GraduationCap size={20} color="#C2408C" aria-hidden />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#4DB8E8', fontFamily: 'DM Mono, monospace' }}>
+                    Featured Resource
+                  </p>
+                  <h2 className="font-serif font-semibold text-white text-2xl leading-tight">
+                    School After Loss
+                  </h2>
+                </div>
+              </div>
+
+              <div className="px-8 pt-7 pb-8">
+                <p className="text-white/80 text-base font-medium mb-3 leading-snug">
+                  Supporting Children Born After the Loss of a Twin or Co-Multiple
+                </p>
+                <p className="text-white/55 text-sm leading-relaxed mb-2">
+                  This guidance brief was developed for educators, school counsellors, psychologists, administrators, and support staff who work with children born following the prenatal or neonatal loss of a twin, triplet, or other co-multiple.
+                </p>
+                <p className="text-white/55 text-sm leading-relaxed mb-8">
+                  Many children born after multiple loss thrive and never require specialized support. However, questions surrounding identity, family history, sibling relationships, and loss may emerge at different developmental stages and are often poorly understood within educational settings. This resource provides evidence-informed guidance to help schools respond with sensitivity, understanding, and inclusion. The guide also includes practical classroom examples, educator-friendly recommendations, and links to additional support organizations and resources.
+                </p>
+
+                {/* Two-column content */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  {/* Topics covered */}
+                  <div>
+                    <h3 className="text-sm font-semibold uppercase tracking-wider mb-4" style={{ color: '#4DB8E8', fontFamily: 'DM Mono, monospace' }}>
+                      Topics Covered
+                    </h3>
+                    <ul className="flex flex-col gap-2.5">
+                      {TOPICS.map((t, i) => (
+                        <li key={i} className="flex items-start gap-2.5">
+                          <CheckCircle size={14} color="#4DB8E8" className="flex-shrink-0 mt-0.5" aria-hidden />
+                          <span className="text-sm text-white/65 leading-relaxed">{t}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Who should use */}
+                  <div>
+                    <h3 className="text-sm font-semibold uppercase tracking-wider mb-4" style={{ color: '#C2408C', fontFamily: 'DM Mono, monospace' }}>
+                      Who Should Use This Resource
+                    </h3>
+                    <ul className="flex flex-col gap-2.5">
+                      {WHO.map((w, i) => (
+                        <li key={i} className="flex items-start gap-2.5">
+                          <Users size={14} color="#C2408C" className="flex-shrink-0 mt-0.5" aria-hidden />
+                          <span className="text-sm text-white/65 leading-relaxed">{w}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Download / View buttons */}
+                <div
+                  className="flex flex-wrap gap-3 pt-6"
+                  style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+                >
+                  <a
+                    href={DRIVE_VIEW}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold text-sm transition-all hover:brightness-110 active:scale-95"
+                    style={{ background: 'linear-gradient(135deg, #6B2DB5, #C2408C)' }}
+                  >
+                    <ExternalLink size={15} />
+                    Download Here
+                  </a>
+                  <a
+                    href={DRIVE_DOWNLOAD}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm transition-all hover:brightness-125"
+                    style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.75)', border: '1px solid rgba(255,255,255,0.15)' }}
+                  >
+                    <Download size={15} />
+                    Save PDF
+                  </a>
+                </div>
+
+                {/* Supporting org note */}
+                <p className="text-xs text-white/35 leading-relaxed mt-5 italic">
+                  If you are interested in being listed as a supporting organization, institution, or individual,{' '}
+                  <Link to="/contact" className="underline underline-offset-2 text-white/50 hover:text-white/75 transition-colors">
+                    please complete this form
+                  </Link>.
+                </p>
+              </div>
+            </div>
+          </RevealDiv>
+
+          {/* ── Additional Resources ── */}
+          <RevealDiv className="mb-8">
+            <h2 className="font-serif font-semibold text-[#1A1020] text-3xl mb-2">Additional Resources</h2>
+            <p className="text-[#1A1020]/50 text-base">Browse by audience.</p>
+          </RevealDiv>
+
           {/* Filter tabs */}
-          <div className="flex flex-wrap gap-2 mb-10">
+          <div className="flex flex-wrap gap-2 mb-8">
             {TABS.map(tab => (
               <button
                 key={tab}
