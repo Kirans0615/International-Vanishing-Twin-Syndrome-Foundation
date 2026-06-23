@@ -36,7 +36,7 @@ export function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative h-screen flex flex-col items-center justify-end pb-20 overflow-hidden">
+      <section className="relative h-screen flex flex-col items-center overflow-hidden">
         <div className="absolute inset-0">
           <HiggsVideo src={HIGGSFIELD.videos.homePregnancy} fallbackGradient={FALLBACKS.heroDark} className="w-full h-full" opacity={0.55} />
         </div>
@@ -61,7 +61,9 @@ export function Home() {
         <ParticleField count={55} />
         <GlowOrbs />
 
-        <div className="relative z-10 flex flex-col items-center text-center px-8 w-full max-w-5xl mx-auto">
+        {/* Spacer: grows to push content to bottom, but never shrinks below navbar height */}
+        <div aria-hidden className="grow shrink-0 min-h-24" />
+        <div className="relative z-10 flex flex-col items-center text-center px-8 w-full max-w-5xl mx-auto pb-20">
           <p
             className="text-[11px] tracking-[0.3em] font-medium uppercase mb-6 animate-fade-slide-up"
             style={{ color: '#4DB8E8', animationDelay: '0.3s', animationFillMode: 'both' }}
