@@ -21,7 +21,7 @@ export function Partners() {
     <>
       <div className="relative h-[45vh] flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden">
         <img
-          src="/Z.jpeg"
+          src={`${import.meta.env.BASE_URL}Z.jpeg`}
           alt=""
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover object-center"
@@ -72,7 +72,7 @@ export function Partners() {
       {/* Collaboration & Partnership Requests — full-bleed image section */}
       <section className="relative overflow-hidden py-24 px-6">
         <img
-          src="/Z.jpeg"
+          src={`${import.meta.env.BASE_URL}Z.jpeg`}
           alt=""
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover object-center"

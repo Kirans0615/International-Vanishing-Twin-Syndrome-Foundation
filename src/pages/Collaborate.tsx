@@ -51,7 +51,7 @@ export function Collaborate() {
     <>
       <div className="relative h-[50vh] overflow-hidden">
         <img
-          src="/Z.jpeg"
+          src={`${import.meta.env.BASE_URL}Z.jpeg`}
           alt=""
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover object-center"
@@ -149,7 +149,7 @@ export function Collaborate() {
               style={{ background: 'linear-gradient(135deg, rgba(26,8,64,0.92) 0%, rgba(107,45,181,0.85) 100%)' }}
             >
               <img
-                src="/Z.jpeg"
+                src={`${import.meta.env.BASE_URL}Z.jpeg`}
                 alt=""
                 aria-hidden
                 className="absolute inset-0 w-full h-full object-cover object-center mix-blend-overlay"
