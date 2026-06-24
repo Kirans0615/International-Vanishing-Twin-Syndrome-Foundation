@@ -1,9 +1,6 @@
-import { useState } from 'react'
+import { ArrowRight, Microscope, Stethoscope, Building2, BookOpen, Megaphone, Globe } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { Send, ArrowRight, Microscope, Stethoscope, Building2, BookOpen, Megaphone, Globe } from 'lucide-react'
 import { useReveal } from '../hooks/useInView'
-import { HiggsVideo } from '../components/HiggsVideo'
-import { HIGGSFIELD } from '../assets/higgsfield'
 
 const COLLAB_TYPES = [
   {
@@ -44,74 +41,32 @@ const COLLAB_TYPES = [
   },
 ]
 
-const COLLAB_CATEGORIES = [
-  'Research collaboration',
-  'Clinical partnership',
-  'Organizational / nonprofit partnership',
-  'Academic or educational institution',
-  'Media or press inquiry',
-  'Grant or funding partnership',
-  'International outreach',
-  'Other',
-] as const
-
-type CollabCategory = (typeof COLLAB_CATEGORIES)[number]
-
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const { ref, className: rc } = useReveal()
   return <div ref={ref} className={`${rc} ${className}`}>{children}</div>
 }
 
 export function Collaborate() {
-  const [form, setForm] = useState({
-    org: '',
-    contact: '',
-    email: '',
-    category: '' as CollabCategory | '',
-    message: '',
-  })
-  const [submitted, setSubmitted] = useState(false)
-
-  const inputStyle: React.CSSProperties = {
-    background: '#FAF8FF',
-    border: '1px solid rgba(139,63,212,0.2)',
-    borderRadius: 12,
-    padding: '14px 20px',
-    color: '#1A1020',
-    fontSize: 15,
-    outline: 'none',
-    transition: 'border-color 0.2s ease',
-    width: '100%',
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    const subject = encodeURIComponent(`Partnership / Collaboration Request — ${form.org || form.contact}`)
-    const body = encodeURIComponent(
-      `Organization / Institution: ${form.org}\nContact Name: ${form.contact}\nEmail: ${form.email}\nType of Collaboration: ${form.category}\n\n${form.message}`
-    )
-    window.location.href = `mailto:contact@vanishingtwinsyndrome.org?subject=${subject}&body=${body}`
-    setSubmitted(true)
-  }
-
   return (
     <>
       <div className="relative h-[50vh] overflow-hidden">
-        <HiggsVideo
-          src={HIGGSFIELD.videos.contactHero}
-          fallbackGradient="linear-gradient(135deg, #2D1060 0%, #4A1A8C 60%, #9B2D6E 100%)"
-          className="absolute inset-0 w-full h-full"
+        <img
+          src="/Z.jpeg"
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          style={{ filter: 'brightness(0.5)' }}
         />
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(to top, rgba(10,4,28,0.9) 0%, rgba(10,4,28,0.35) 100%)' }}
+          style={{ background: 'linear-gradient(to top, rgba(26,8,64,0.85) 0%, rgba(26,8,64,0.3) 100%)' }}
           aria-hidden
         />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
-          <h1 className="font-serif font-semibold text-white text-5xl mb-4 tracking-[-0.02em]">
+          <h1 className="font-serif font-semibold text-white text-5xl mb-4 tracking-[-0.02em] drop-shadow-lg">
             Collaboration &amp; Partnerships
           </h1>
-          <p className="text-white/70 text-lg max-w-xl leading-relaxed">
+          <p className="text-white/75 text-lg max-w-xl leading-relaxed drop-shadow">
             Partner with the IVTSF to advance VTS awareness, research, and support for families worldwide.
           </p>
         </div>
@@ -187,158 +142,44 @@ export function Collaborate() {
             </p>
           </RevealDiv>
 
-          {/* ── Form ── */}
-          <RevealDiv className="mb-6">
-            <h2 className="font-serif font-semibold text-[#1A1020] text-3xl mb-2">
-              Submit a Partnership Request
-            </h2>
-            <p className="text-[#1A1020]/50 text-base">
-              Fill in the details below and a member of the IVTSF team will be in touch.
-            </p>
-          </RevealDiv>
-
-          <div className="max-w-2xl">
-            {submitted ? (
-              <div
-                className="rounded-2xl p-10 text-center"
-                style={{ background: '#fff', border: '1px solid rgba(107,45,181,0.1)' }}
-              >
-                <p className="font-serif font-semibold text-[#1A1020] text-2xl mb-3">
-                  Thank you for reaching out.
+          {/* ── Request Section ── */}
+          <RevealDiv>
+            <div
+              className="relative overflow-hidden rounded-3xl px-10 py-14 text-center"
+              style={{ background: 'linear-gradient(135deg, rgba(26,8,64,0.92) 0%, rgba(107,45,181,0.85) 100%)' }}
+            >
+              <img
+                src="/Z.jpeg"
+                alt=""
+                aria-hidden
+                className="absolute inset-0 w-full h-full object-cover object-center mix-blend-overlay"
+                style={{ filter: 'brightness(0.4)', opacity: 0.5 }}
+              />
+              <div className="relative z-10 max-w-2xl mx-auto">
+                <h2 className="font-serif font-semibold text-white text-3xl mb-5 drop-shadow-lg">
+                  Submit a Collaboration or Partnership Request
+                </h2>
+                <p className="text-white/85 text-base leading-relaxed mb-4">
+                  IVTSF welcomes inquiries from potential partners, researchers, clinicians, educators, institutions, advocacy organizations, and others interested in collaborating on projects or volunteer efforts aligned with our mission.
                 </p>
-                <p className="text-[#1A1020]/60 text-base leading-relaxed mb-6">
-                  Your request has been sent. The IVTSF team will review it and follow up at the email address you provided. For urgent inquiries, contact us directly at{' '}
-                  <a href="mailto:contact@vanishingtwinsyndrome.org" className="text-[#6B2DB5] underline">
-                    contact@vanishingtwinsyndrome.org
-                  </a>
-                  .
+                <p className="text-white/70 text-base leading-relaxed mb-9">
+                  Click below to submit a request for partnership or collaboration on research, education, advocacy, support, awareness initiatives, or practical tools that advance care for individuals and families affected by vanishing twin syndrome and multifetal loss.
                 </p>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 text-sm font-medium"
-                  style={{ color: '#6B2DB5' }}
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdiahpIBLquTMYX-iJ8Ld-KGtjCxy23jtiUb2brxDmAnx8XnQ/viewform?usp=header"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-10 py-4 rounded-full text-white font-semibold text-base transition-all hover:brightness-110 hover:scale-105"
+                  style={{ background: 'linear-gradient(135deg, #8B3FD4, #C2408C)', boxShadow: '0 8px 32px rgba(107,45,181,0.5)' }}
                 >
-                  Back to Contact
-                </Link>
+                  Start a Request
+                </a>
+                <p className="text-white/40 text-xs mt-6 leading-relaxed">
+                  Submissions are reviewed by the IVTSF team. We aim to respond within 5–10 business days.
+                </p>
               </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="rounded-2xl p-10 flex flex-col gap-6"
-                style={{ background: '#fff', border: '1px solid rgba(139,63,212,0.1)', boxShadow: '0 2px 16px rgba(74,26,140,0.05)' }}
-              >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-medium text-[#1A1020]/70 mb-2" htmlFor="org">
-                      Organization / Institution <span style={{ color: '#C2408C' }}>*</span>
-                    </label>
-                    <input
-                      id="org"
-                      name="org"
-                      type="text"
-                      required
-                      value={form.org}
-                      onChange={e => setForm(p => ({ ...p, org: e.target.value }))}
-                      placeholder="Your organization or institution"
-                      style={inputStyle}
-                      onFocus={e => (e.currentTarget.style.borderColor = '#6B2DB5')}
-                      onBlur={e => (e.currentTarget.style.borderColor = 'rgba(139,63,212,0.2)')}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[#1A1020]/70 mb-2" htmlFor="contact">
-                      Contact Name <span style={{ color: '#C2408C' }}>*</span>
-                    </label>
-                    <input
-                      id="contact"
-                      name="contact"
-                      type="text"
-                      required
-                      value={form.contact}
-                      onChange={e => setForm(p => ({ ...p, contact: e.target.value }))}
-                      placeholder="Your name"
-                      style={inputStyle}
-                      onFocus={e => (e.currentTarget.style.borderColor = '#6B2DB5')}
-                      onBlur={e => (e.currentTarget.style.borderColor = 'rgba(139,63,212,0.2)')}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-[#1A1020]/70 mb-2" htmlFor="email">
-                    Email Address <span style={{ color: '#C2408C' }}>*</span>
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
-                    placeholder="your@email.com"
-                    style={inputStyle}
-                    onFocus={e => (e.currentTarget.style.borderColor = '#6B2DB5')}
-                    onBlur={e => (e.currentTarget.style.borderColor = 'rgba(139,63,212,0.2)')}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-[#1A1020]/70 mb-2" htmlFor="category">
-                    Type of Collaboration <span style={{ color: '#C2408C' }}>*</span>
-                  </label>
-                  <select
-                    id="category"
-                    name="category"
-                    required
-                    value={form.category}
-                    onChange={e => setForm(p => ({ ...p, category: e.target.value as CollabCategory }))}
-                    style={{ ...inputStyle, cursor: 'pointer' }}
-                    onFocus={e => (e.currentTarget.style.borderColor = '#6B2DB5')}
-                    onBlur={e => (e.currentTarget.style.borderColor = 'rgba(139,63,212,0.2)')}
-                  >
-                    <option value="" disabled>Select a category…</option>
-                    {COLLAB_CATEGORIES.map(c => (
-                      <option key={c} value={c}>{c}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-[#1A1020]/70 mb-2" htmlFor="message">
-                    Tell us about your proposal <span style={{ color: '#C2408C' }}>*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    value={form.message}
-                    onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
-                    placeholder="Describe the partnership or collaboration you have in mind — goals, scope, timeline, and any relevant context."
-                    rows={6}
-                    style={{ ...inputStyle, resize: 'vertical', minHeight: 160 }}
-                    onFocus={e => (e.currentTarget.style.borderColor = '#6B2DB5')}
-                    onBlur={e => (e.currentTarget.style.borderColor = 'rgba(139,63,212,0.2)')}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-4 rounded-full text-white font-semibold transition-all hover:brightness-110 active:scale-95 flex items-center justify-center gap-2"
-                  style={{ background: 'linear-gradient(135deg, #6B2DB5, #C2408C)' }}
-                >
-                  <Send size={16} />
-                  Submit Partnership Request
-                </button>
-              </form>
-            )}
-
-            <p className="text-center text-xs text-[#1A1020]/40 italic mt-6 leading-relaxed">
-              Submissions are reviewed by the IVTSF team. We aim to respond within 5–10 business days.{' '}
-              <a href="mailto:contact@vanishingtwinsyndrome.org" className="underline">
-                contact@vanishingtwinsyndrome.org
-              </a>
-            </p>
-          </div>
+            </div>
+          </RevealDiv>
 
         </div>
       </section>

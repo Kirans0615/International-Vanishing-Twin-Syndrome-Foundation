@@ -1,7 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import { useReveal } from '../../hooks/useInView';
 import { HiggsImage } from '../../components/HiggsImage';
-import { KnowledgeSubNav } from '../../components/KnowledgeSubNav';
 import { HIGGSFIELD } from '../../assets/higgsfield';
 
 const PARTNERS = [
@@ -20,15 +19,20 @@ function RevealDiv({ children, className = '' }: { children: React.ReactNode; cl
 export function Partners() {
   return (
     <>
-      <div
-        className="relative h-[40vh] flex flex-col items-center justify-center text-center px-6 pt-20"
-        style={{ background: 'linear-gradient(135deg, #4A1A8C 0%, #2D1060 100%)' }}
-      >
-        <h1 className="font-serif font-semibold text-white text-5xl mb-4">Partners &amp; Resources</h1>
-        <p className="text-white/70 text-lg max-w-xl">Organizations we collaborate with to advance VTS awareness and support.</p>
+      <div className="relative h-[45vh] flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden">
+        <img
+          src="/Z.jpeg"
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          style={{ filter: 'brightness(0.55)' }}
+        />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,8,64,0.75) 0%, rgba(26,8,64,0.25) 100%)' }} aria-hidden />
+        <div className="relative z-10">
+          <h1 className="font-serif font-semibold text-white text-5xl mb-4 drop-shadow-lg">Partners &amp; Resources</h1>
+          <p className="text-white/75 text-lg max-w-xl leading-relaxed drop-shadow">Organizations we collaborate with to advance VTS awareness and support.</p>
+        </div>
       </div>
-
-      <KnowledgeSubNav />
 
       <section className="relative bg-[#FAF8FF] px-6 py-20 overflow-hidden">
         <HiggsImage src={HIGGSFIELD.images.partnersTexture} alt="" fallbackGradient="transparent" className="absolute inset-0 w-full h-full object-cover pointer-events-none" style={{ opacity: 0.05 }} />
@@ -62,23 +66,41 @@ export function Partners() {
             ))}
           </div>
 
-          <RevealDiv className="mt-12">
-            <div className="rounded-2xl p-8 text-center" style={{ background: '#F0EBF8' }}>
-              <h2 className="font-serif font-semibold text-[#1A1020] text-2xl mb-3">Interested in Partnering?</h2>
-              <p className="text-[#1A1020]/55 text-base leading-relaxed mb-6 max-w-lg mx-auto">
-                We welcome collaborations with researchers, clinicians, patient advocacy organizations, and nonprofits aligned with our mission.
-              </p>
-              <a
-                href="mailto:contact@vanishingtwinsyndrome.org"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold transition-all hover:brightness-110"
-                style={{ background: 'linear-gradient(135deg, #6B2DB5, #C2408C)' }}
-              >
-                Get In Touch
-              </a>
-            </div>
-          </RevealDiv>
         </div>
       </section>
+
+      {/* Collaboration & Partnership Requests — full-bleed image section */}
+      <section className="relative overflow-hidden py-24 px-6">
+        <img
+          src="/Z.jpeg"
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          style={{ filter: 'brightness(0.45)' }}
+        />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(26,8,64,0.70) 0%, rgba(107,45,181,0.55) 100%)' }} aria-hidden />
+        <RevealDiv className="relative z-10 max-w-2xl mx-auto text-center">
+          <h2 className="font-serif font-semibold text-white text-4xl mb-6 drop-shadow-lg">
+            Collaboration &amp; Partnership Requests
+          </h2>
+          <p className="text-white/85 text-base leading-relaxed mb-5">
+            IVTSF welcomes inquiries from potential partners, researchers, clinicians, educators, institutions, advocacy organizations, and others interested in collaborating on projects or volunteer efforts aligned with our mission.
+          </p>
+          <p className="text-white/70 text-base leading-relaxed mb-10">
+            Click below to submit a request for partnership or collaboration on research, education, advocacy, support, awareness initiatives, or practical tools that advance care for individuals and families affected by vanishing twin syndrome and multifetal loss.
+          </p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdiahpIBLquTMYX-iJ8Ld-KGtjCxy23jtiUb2brxDmAnx8XnQ/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-9 py-4 rounded-full text-white font-semibold text-base transition-all hover:brightness-110 hover:scale-105"
+            style={{ background: 'linear-gradient(135deg, #6B2DB5, #C2408C)', boxShadow: '0 8px 32px rgba(107,45,181,0.45)' }}
+          >
+            Start a Request
+          </a>
+        </RevealDiv>
+      </section>
+
     </>
   );
 }
