@@ -91,7 +91,14 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Shop', href: '/shop' },
   { label: 'Donate', href: '/donate' },
   { label: 'Volunteer', href: '/volunteer' },
-  { label: 'Contact', href: '/contact' },
+  {
+    label: 'Contact',
+    href: '/contact',
+    children: [
+      { label: 'Contact Us', href: '/contact' },
+      { label: 'Collaboration & Partnerships', href: '/contact/collaborate' },
+    ],
+  },
 ]
 
 export function flattenNav(items: NavItem[]): NavChild[] {

@@ -30,6 +30,7 @@ import { Shop } from './pages/Shop';
 import { Donate } from './pages/Donate';
 import { Volunteer } from './pages/Volunteer';
 import { Contact } from './pages/Contact';
+import { Collaborate } from './pages/Collaborate';
 
 export default function App() {
   return (
@@ -66,6 +67,7 @@ export default function App() {
           <Route path="/donate" element={<Donate />} />
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/contact/collaborate" element={<Collaborate />} />
         </Routes>
       </main>
       <Footer />
