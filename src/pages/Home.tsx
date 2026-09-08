@@ -6,7 +6,7 @@ import { ParticleField } from '../components/ParticleField';
 import { GlowOrbs } from '../components/GlowOrbs';
 import { HIGGSFIELD, FALLBACKS } from '../assets/higgsfield';
 
-const PARTNER_MARQUEE = ['ICOMBO', 'Butterfly Project', 'ISUOG', 'MoA', 'Bereavement UK', 'IPEN', 'Global Twins', 'Wind River Chimes'];
+const MISSION_WORDS = ['Research', 'Awareness', 'Support', 'Education', 'Resources', 'Information', 'Advocacy'];
 
 
 const AUDIENCE_CARDS = [
@@ -65,7 +65,7 @@ export function Home() {
         <div aria-hidden className="grow shrink-0 min-h-24" />
         <div className="relative z-10 flex flex-col items-center text-center px-8 w-full max-w-5xl mx-auto pb-20">
           <p
-            className="text-[11px] tracking-[0.3em] font-medium uppercase mb-6 animate-fade-slide-up"
+            className="text-base md:text-lg tracking-[0.12em] font-medium uppercase mb-6 max-w-[620px] leading-[1.5] animate-fade-slide-up"
             style={{ color: '#4DB8E8', animationDelay: '0.3s', animationFillMode: 'both' }}
           >
             International Vanishing Twin Syndrome Foundation
@@ -73,7 +73,7 @@ export function Home() {
 
           <h1
             className="font-serif font-semibold text-white tracking-[-0.03em] leading-[1.08] mb-6"
-            style={{ fontSize: 'clamp(3rem,6vw,5.5rem)' }}
+            style={{ fontSize: 'clamp(2.25rem,7.5vw,5.5rem)' }}
           >
             <span className="block animate-hero-text" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>Understanding.</span>
             <span className="block animate-hero-text" style={{ animationDelay: '0.65s', animationFillMode: 'both' }}>Research.</span>
@@ -89,7 +89,7 @@ export function Home() {
 
           <div className="w-full max-w-2xl overflow-hidden mb-8 opacity-60">
             <div className="flex whitespace-nowrap" style={{ animation: 'marquee 24s linear infinite' }}>
-              {[...PARTNER_MARQUEE, ...PARTNER_MARQUEE].map((p, i) => (
+              {[...MISSION_WORDS, ...MISSION_WORDS].map((p, i) => (
                 <span key={i} className="text-xs text-white/50 tracking-widest mx-6 uppercase font-medium">{p}</span>
               ))}
             </div>
