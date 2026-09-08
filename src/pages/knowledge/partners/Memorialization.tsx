@@ -5,6 +5,7 @@ import { HiggsVideo } from '../../../components/HiggsVideo'
 import { KnowledgeHubSubNav } from '../../../components/KnowledgeHubSubNav'
 import { Breadcrumb } from '../../../components/Breadcrumb'
 import { HIGGSFIELD, FALLBACKS } from '../../../assets/higgsfield'
+import { ButterflyArtwork } from '../../../components/ButterflyArtwork'
 
 function RevealDiv({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const { ref, className: rc } = useReveal()
@@ -291,6 +292,10 @@ export function Memorialization() {
                 The purple butterfly is the international symbol for twin loss. It helps bring visibility to families who have experienced the loss of a twin or multiple during pregnancy, particularly in healthcare settings. Many hospitals now use a purple butterfly symbol on medical records and room doors to alert staff that a family has experienced a multiple-loss pregnancy — ensuring sensitive, informed care.
               </p>
             </div>
+          </RevealDiv>
+
+          <RevealDiv className="mb-10">
+            <ButterflyArtwork />
           </RevealDiv>
 
           <SectionDivider />
